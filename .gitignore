@@ -1,0 +1,25 @@
+# Windows system files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# VS Code settings
+.vscode/
+
+# LaTeX and build files (same as before)
+*.aux
+*.log
+*.toc
+*.out
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.bbl
+*.blg
+
+# Ignore build output
+/build/
+main.pdf
+ 
