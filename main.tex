@@ -1,0 +1,77 @@
+\documentclass[11pt,a4paper,twoside,openright]{report}
+
+\usepackage{format}
+
+\sloppy
+
+\begin{document}
+\pagenumbering{Roman}
+
+% ===================
+% Frontpage
+% ===================
+\input{./Titlepage}
+\newpage
+\thispagestyle{empty}
+\ \ % Empty page
+
+% ===================
+% Dedication
+% ===================
+%\include{./chapters/Dedication}
+
+% ===================
+% Abstracts
+% ===================
+%\include{./chapters/AbstractEN}
+%\include{./chapters/AbstractDE}
+%\include{./chapters/AbstractIT}
+
+% ===================
+% Table of contents
+% ===================
+\tableofcontents
+\markboth{\MakeUppercase{Contents}}{\MakeUppercase{Contents}}
+
+% ======================================
+% List of figures and list of tables
+% ======================================
+\thispagestyle{empty}
+\listoffigures
+\listoftables
+\newpage
+\thispagestyle{empty}
+\ % Empty page
+
+% ===================
+% Chapters
+% ===================
+\pagenumbering{arabic}
+%\include{./chapters/Introduction}
+%\include{./chapters/Chapter1}
+%\include{./chapters/Chapter2}
+%\include{./chapters/Chapter3}
+%\include{./chapters/Chapter4}
+%\include{./chapters/Chapter5}
+%\include{./chapters/Conclusions}
+
+% ===================
+% Appendix
+% ===================
+%\appendix
+%\input{./chapters/AppendixA}
+
+% ===================
+% References
+% ===================
+\addcontentsline{toc}{chapter}{Bibliography}
+\bibliographystyle{agsm}
+\small
+\bibliography{Bibliography}
+
+% ===================
+% Acknowledgments
+% ===================
+\include{./chapters/Acknowledgments}
+
+\end{document}

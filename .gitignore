@@ -6,7 +6,7 @@ Desktop.ini
 # VS Code settings
 .vscode/
 
-# LaTeX and build files (same as before)
+# LaTeX and build files
 *.aux
 *.log
 *.toc
@@ -29,3 +29,6 @@ Thumbs.db
 /build/
 main.pdf
  
+# Ignore other files
+macros.tex 
+preamble.sty
