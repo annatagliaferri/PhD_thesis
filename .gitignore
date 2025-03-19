@@ -18,6 +18,7 @@ Desktop.ini
 *.synctex.gz
 *.bbl
 *.blg
+*.nlo
 
 # Ignore temporary and backup files
 *~
