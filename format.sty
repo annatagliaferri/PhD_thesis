@@ -3,7 +3,7 @@
 %*******************************************************
 \usepackage[utf8]{inputenc} 
 \usepackage[T1]{fontenc}                            % Font encoding
-\usepackage[english,italian,german]{babel}                 % Language selection
+\usepackage[german,italian,english]{babel}                 % Language selection
 
 %*******************************************************
 % MARGINS & PAGE LAYOUT
@@ -52,13 +52,11 @@
 %*******************************************************
 % MATHEMATICAL & SYMBOL PACKAGES
 %*******************************************************
-\usepackage{amssymb, amsfonts, amsmath, bm}          % Math symbols and fonts
+\usepackage{amssymb, amsfonts, amsmath, bm, enumitem, amsthm} % Math symbols and fonts
 \usepackage{siunitx}                                 % SI units
 \usepackage{textcomp, gensymb}                       % Additional symbols
 \usepackage{wasysym}                                 % Extra symbols
 \usepackage[version=4]{mhchem}                       % Chemical formulas
-
-\newtheorem*{remark}{Remark}
 
 %*******************************************************
 % TABLES & FIGURES
@@ -103,17 +101,32 @@
 %*******************************************************
 \usepackage{hyperref}                               % Hyperlinks in document
 \hypersetup{
-    colorlinks=false,
-    linktocpage=true,
-    pdfborder={0 0 0},
-    pdfstartview=FitV,
-    bookmarksopen=true,
-    bookmarksnumbered,
-    breaklinks=true,
-    linkcolor=Black,
-    citecolor=Black,
-    urlcolor=Black
-}
+	colorlinks=false,
+	linktocpage=true,
+	pdfstartpage=1,
+	pdfstartview=FitV,
+	colorlinks=false,
+	linktocpage=false,
+	pdfborder={0 0 0},
+	pdfstartview=FitV,
+	breaklinks=true,
+	pdfpagemode=UseNone,
+	pageanchor=true,
+	pdfpagemode=UseOutlines,
+	plainpages=false,
+	bookmarksnumbered,
+	bookmarksopen=true,
+	bookmarksopenlevel=1,
+	hypertexnames=true,
+	pdfhighlight=/O,
+	nesting=true,
+	urlcolor=webbrown,
+	linkcolor=RoyalBlue,
+	citecolor=webgreen,
+	urlcolor=Black,
+	linkcolor=Black,
+	citecolor=Black,
+	}
 
 %*******************************************************
 % GLOSSARY & LIST OF SYMBOLS
@@ -137,7 +150,7 @@
 % MACROS
 %*******************************************************
 \newcommand{\rosso}[1]{\textcolor{red}{#1}}
-\newcommand{\AT}[1]{\textcolor{Fuchsia}{#1}}
+\newcommand{\AT}[1]{\textcolor{purple}{#1}}
 \newcommand{\note}[1]{\textcolor{teal}{#1}}
 
 \newcommand{\ids}{\ensuremath{\mathrm{I_{DS}}}}
@@ -161,3 +174,5 @@
 
 \newcommand{\amm}{$\mathrm{NH_4^+}$}
 \newcommand{\di}{\ce{diH2O}}
+
+\newtheorem*{remark}{Remark}
