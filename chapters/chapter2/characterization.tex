@@ -1,0 +1,67 @@
+\subsection{Morphological characterization}
+\label{sec:morphoCaracterization}
+
+\note{Citations are needed!}
+
+\begin{figure}
+    \centering
+    \subfloat[After development\label{fig:afterDevelopment}]{
+        \includegraphics[width=0.4\textwidth]{figures/chapter2/characterization/afterDevelopment.jpg}
+    } \quad
+    \subfloat[After lift-off\label{fig:afterLiftOff}]{
+        \includegraphics[width=0.4\textwidth]{figures/chapter2/characterization/afterLiftOff.jpg}
+    }
+    \caption{\note{Optical microscopy images of the sample at different stages of the lithography process. (a) After development, where the patterned photoresist is visible. (b) After lift-off, where the final structure remains after removing the excess material.}}
+    \label{fig:lithoOpticalMicroscope}
+\end{figure}
+
+The morphology of the devices was analyzed at different stages during fabrication, using a combination of techniques. The first and simplest method was the optical microscope: using this, it was possible to check the quality of the lithography, starting from the substrate right after photoresist exposure and development (Figure \ref{fig:afterDevelopment}). The purpose of inspecting the substrate at this stage was to identify any defects resulting from suboptimal exposure, such as incorrect mask placement, or imperfections in the mask itself. This step was critical to prevent problems in subsequent steps and to determine if the mask needed to be replaced or the protocol optimized.
+A further check was made after metal deposition and subsequent lift-off (Figure \ref{fig:afterLiftOff}). This is also a delicate process that needs some care, as it could preclude the continuation of the experiments; indeed, if the rinsing is not carried out properly after the acetone bath, gold speckles may remain attached in between the IDE arms, even after sonication, thus creating the risk for short circuits.
+Later, the optical microscope was used to first check CNT deposition (see Figure \ref{fig:CNTopticalMicroscope}): as explained before, at this point it was possible to only see the marks left by the surfactant droplets, which were useful to estimate the density of the deposited CNT network. The optical microscope was then used to check the quality of deposition of the membranes and finally to check for any damages caused during the gate cleaning process.
+
+The CNT network could not be properly characterized with optical microscopy, thus atomic force microscopy (AFM) and scanning electron microscopy (SEM) were employed. AFM exploits repulsion forces to analyze the morphology of a sample. The system uses a cantilever equipped with a small tip, which is slid along the sample. As the tip approaches the atoms on the surface of the sample, it undergoes a slight deflection, allowing the morphology of the sample to be accurately mapped. The machine operates in two different modes, static and dynamic. In the first case, the tip remains in contact with the sample and a feedback system keeps the interaction forces constant, moving the cantilever according to changes in the sample surface. In dynamic contact mode, the cantilever oscillates at a constant frequency; as the surface changes, the interaction forces between the tip and the sample also change, causing changes in the cantilever oscillation. By measuring the deflections and the changes in oscillation frequency and amplitude, it is then possible to reconstruct the sample profile with nanometer precision. For the samples used in this project, dynamic mode operation was deemed the most appropriate.
+SEM, on the other hand, is an electron microscopy technique in which an electron beam impinges on the sample. Two types of response arise from the interaction of these electrons with the sample: the electrons in the primary beam can be backscattered or they can cause secondary electrons to be emitted from the sample; both reach a detector, from which they are measured. The signal from these electrons is then processed and it allows to reconstruct the morphology of the sample. An advantage of SEM over AFM is the high depth of field, which allows better three-dimensional visualization of the sample. For the purpose of this project, the microscope was operated at an accelerating voltage of \SI{3}{\V}, with a working distance of \SI{8}{\mm}.
+
+Finally, the last step of morphological analysis was carried out by means of profilometry: this allowed to characterize the thickness and the profile of the membranes with micrometer precision, ultimately helping to optimize the dropcasting process.
+All measurements were conducted on a KLA Tencor P-6 Surface Profilometer with a scan speed of \SI{50}{\um\per\s}, a sampling rate of \SI{50}{\Hz} and an applied force of the stylus set at \SI{2.0}{\mg}.
+
+\subsection{Chemical characterization}
+\label{sec:chemCharacterization}
+
+Chemical characterization was performed to monitor the course of the functionalization process with the aptamers. First, XPS was utilized to analyze the chemical composition of the gate surface and consequently to identify any impurities on the electrode surface. XPS is a surface-sensitive analytical technique that quantifies the binding energies of photoelectrons emitted from a material when it is irradiated with X-rays. Data regarding the chemical state and elemental composition of the surface are obtained from the energy and intensity of the emitted electrons. The instrument allowed to quantify surface contamination and assess the effectiveness of the cleaning procedures.
+
+Subsequently, FTIR was used to evaluate the bonds formed on the gold surface; this would contribute to the assessment of whether or not the aptamers had attached to the surface. Indeed, when infrared light irradiates on the sample, it interacts with the molecular vibrations and causes them to absorb certain wavelengths of the radiation. Sample functional groups can be then identified because each form of chemical bond has a distinctive absorption peak.
+
+\subsection{Electrical characterization}
+\label{sec:ElCharacterization}
+
+\begin{figure}
+    \centering
+    \subfloat[Probe station setup]{
+        \rotatebox{-90}{\includegraphics[width=0.3\textwidth]{figures/chapter2/characterization/Fig_probeStationSetup.jpg}}
+    } \quad
+    \subfloat[Potentiostat setup]{
+        \rotatebox{-90}{\includegraphics[width=0.3\textwidth]{figures/chapter2/characterization/Fig_cvSetup.jpg}}
+    }
+    \caption{Electrical characterization setups.
+    (a) Probe station setup: the sample was positioned on the substrate holder, secured with the vacuum underneath. Three source measure units (SMUs) are in contact with the electrodes and allow to apply the necessary input voltages while also measuring the output currents.
+    (b) Potentiostat setup: the gate was used as working electrode, a platinum wire as the counter electrode, and \ce{Ag/AgCl} as the reference electrode. All measurements were carried out in \SI{1}{mM} \ce{Fe[\ce{CN}]_{6}^{3-/4-}} in PBS 1X.}
+    \label{fig:electricalCharacterization}
+\end{figure}
+
+Electrical characterization was conducted at various stages of fabrication using multiple techniques to assess the device functionality and the progression of the functionalization process.
+
+Initially, an I-V sweep between \SI{0.5}{\V} and \SI{-0.5}{\V} was performed to test the electrical behavior of the channel shortly after CNT deposition. This provided a first screening of the devices, choosing only those with source-drain resistance (\rds{}) resistance between \SI{1}{\kohm} and \SI{10}{\kohm} for best performance. This selection allowed to minimize device-to-device variability, thus already providing a first checkpoint to improve device stability.
+
+Subsequently, cyclovoltammetry (CV) and electrochemical impedance spectroscopy (EIS) measurements were performed to monitor the progression of functionalization at the end of the various fabrication and incubation steps (gold electrode only, electrode with aptamers, electrode with aptamers and PEG). Both techniques are based on the three-electrode electrochemical cell, having a working electrode (WE), a counter electrode (CE) and a reference electrode (RE). The WE is where the reaction of interest occurs, \ie{} the gate for the purpose of this project. The CE, usually made of an inert material like platinum, is the terminal needed for the current to flow; if a reduction takes place on the WE, the terminal works as a cathode, then CE responds with an oxidation, functioning as the anode. Lastly, the RE is made of materials that maintain a stable electrochemical and have a known potential, \eg{} \ce{Ag/AgCl} or saturated calomel electrode (SCE); by comparing the voltage of the WE with the RE, it is possible to control and measure the potential applied to the system, therefore ensuring precise electrochemical analysis. The experiments also require an electrolyte in which to immerse the electrodes; this allows the electrons released by the reaction to move from one electrode to the other, thus ensuring good conductivity.
+
+In CV, a linear voltage sweep is applied to the WE to induce a raction, then the voltage is brought back to the initial value, hence the term cyclic is used to describe this type of experiment. As the voltage changes, the redox reaction occurs, releasing electrons and generating a current in response. 
+The idea of this experiment is that as the gate is covered by aptamers and blocking agents, the surface area on which the redox reaction takes place is diminished; thus, one should see a reduction in the voltammetric peak during the progression of functionalization.
+The experiments illustrated in this thesis were performed in a solution of 1X PBS with \SI{1}{mM} ferro-ferricyanide (\ce{Fe[\ce{CN}]_{6}^{3-/4-}}) with the gate functioning as WE, a platinum filament as CE and an electrode of \ce{Ag/AgCl} in 3M \ce{NaCl} as RE. It is to be noted that \ce{Fe[\ce{CN}]_{6}^{3-/4-}} is a reference redox system in electrochemical measurements, in which the redox reaction \ce{Fe(CN)6^{3-} + e^- <=> Fe(CN)6^{4-}} takes place; the redox reaction therefore causes a change in the amount of electrons flowing, so a change in current can be measured as a signal.
+The parameters of the experiment were set so that the potential was raised from \SI{-0.4}{V} to \SI{+0.6}{V} with a scan rate of \SI{0.1}{\V\per\s}; measurements were collected 10 consecutive times for each device, and the average current of the last 5 was calculated.
+
+EIS was later employed to further characterize the fabricated devices. This type of experiment is useful for analyzing the electrochemical characteristics of the samples under analysis in response to an alternating current (AC) being applied to the system; the response of the system is measured as impedance [\unit{\ohm}], which is the amount of opposition of the circuit to the current flow. Inductance is a complex quantity to which resistance (in the real plane) and reactance (in the imaginary plane) contribute; the former measures the opposition between the electrons and the conducting material, while the latter is due to inductance and capacitance phenomena, which depend strictly on the applied frequency. In this project, EIS was carried out with from a starting frequency of \SI{100000}{\hertz} to an end frequency of \SI{0.1}{\hertz}, with an amplitude of \SI{10}{mV} and 7 points per decade. Also, an equilibrium DC shift of \SI{0.2}{V} against the reference was set.
+
+To evaluate device performance, transfer and output characteristics were recorded using a probe station equipped with a semiconductor device parameter analyzer. Transfer characteristics were acquired in a backward and forward sweep, with \vgs{} from \SI{0.2}{\V} to \SI{-0.8}{\V} and \vds{} fixed at \SI{-0.1}{\V}. Output characteristics were measured by sweeping \vds{} from \SI{0}{\volt} to \SI{-0.5}{\volt} at five fixed values of \vgs{}: \SI{0}{\V}, \SI{-0.2}{\V}, \SI{-0.4}{\V}, \SI{-0.6}{\V}, and \SI{-0.8}{\V}.
+
+Finally, to evaluate sensor performance, additional tests were conducted keeping \vds{} fixed to \SI{-0.1}{\V} and \vgs{} to \SI{-0.8}{\V}; the variations in output current over time were acquired as the response of the sensor and correlated to different analyte concentration.
