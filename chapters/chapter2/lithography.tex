@@ -1,12 +1,12 @@
 \subsection{Photolithography}
 \label{sec:lithography}
 
-%\begin{figure}[h]
-%    \centering
-%    \includegraphics[width = 0.8\textwidth]{figures/chapter2/litho/Fig8_litho.pdf}
-%    \caption{}
-%    \label{fig:litho}
-%\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width = 0.8\textwidth]{figures/chapter2/litho/Fig8_litho.pdf}
+    \caption{}
+    \label{fig:litho}
+\end{figure}
 
 Photolithography is an ancient technique that uses light (usually ultraviolet) to very precisely transfer a pattern onto a substrate, and is often used to create the very small structures typical of electronics. The EG-FET fabricated in this project is no exception.
 
@@ -30,9 +30,9 @@ After exposure, the substrate underwent development to remove the unexposed area
 
 After photolithography, multiple techniques can be used to deposit the electrodes, including physical vapour deposition (PVD) techniques. This term refers to those methods where the target material (\eg{} a metal) is processed in such a way that it changes phase, namely from solid to vapour, and then to solid again (no reactions occur during the phase changes). Two common PVD techniques are sputtering, where high-energy ions bombard the target causing the atoms to detach, evaporate and reattach on the substrate, and evaporation, where the target is heated enough to have the metal evaporate, deposit on the substrate and solidify again, mostly in the form of thin film. In the case of this project, the choice fell on evaporation for practical reasons: the evaporator was simply already setup for the process, offering the possibility to evaporate both the titanium adhesion layer and the actual gold electrode. This process also allowed to tightly control the thickness of the electrodes and produced very uniform metal surfaces. As a PVD technique, it is important to notice that evaporation occurs in vacuum conditions (\SI{<2e-6}{\mbar}): this helps in removing vapours other than the metal and prevents impurities from contaminating the surface. First, an adhesion layer of \SI{10}{\nm} of titanium was deposited. Since titanium has a high-melting point (\SI{1668}{\celsius}), an electron beam (e-beam) was necessary to sufficiently heat up the metal: in this process, a metal filament is electrically charged (a current of approximately \SI{100}{\mA} was applied) to the point where it releases electrons; these same electrons are emitted with very high energy and on a very focused spot that gets heated up until it starts to evaporate. These vaporized atoms then land on a cold surface, \ie{} the substrate, where they condense again, forming the thin layer needed for gold to adhere to the substrate. Indeed, without this, gold would be more prone to delamination or chipping, at the risk of making our efforts invain. Next, a \SI{50}{\nm} gold layer was deposited using thermal evaporation. This method relies on resistive heating to reach the melting point of a gold pellet (\SI{1064.18}{\celsius}), which then evaporates and travels in the chamber until it condenses on the PI surface, which is now covered in titanium. For both processes, it was imperative to maintain the evaporation rate as stable as possible, in order to deposit a uniform layer with minimal defects. This would then favour stability in the fabricated devices; the best results were obtained when evaporating at a rate between \SIrange{0.2}{0.5}{\angstrom\per\second}. To also contribute to the uniformity of the deposited layers, the substrate was placed on a rotating support, which promoted an even distribution of the evaporated material. After metal deposition, the lift off process took place by immersing the substrate (now fully covered in metals, without any pattern visible) in acetone for \SI{60}{\min}; indeed, ma-N 1420 is sensitive to acetone, which can be used to remove the excess. After the acetone bath, the substrates were placed in an ultrasound sonicator for few seconds, then rinsed with a bottle. This process was repeated 3 times with acetone and once with IPA to ensure that all remaining photoresist was removed, and the overlaying metals with it. The devices were then dried with an air gun and checked for any fabrication defects, \eg{} gold speckles in the channel that could later cause short circuits.
 
-%\begin{figure}[h]
-%    \centering
-%    \includegraphics[width=0.8\textwidth]{figures/chapter2/litho/Fig9_evap.pdf}
-%    \caption{}
-%    \label{fig:evap}
-%\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/chapter2/litho/Fig9_evap.pdf}
+    \caption{}
+    \label{fig:evap}
+\end{figure}
