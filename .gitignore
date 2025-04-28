@@ -32,3 +32,7 @@ main.pdf
 # Ignore other files
 macros.tex 
 preamble.sty
+HistDet2.txt
+ammAndHistDet.txt
+ammoniumDet.txt
+HistDet.txt
