@@ -29,7 +29,183 @@ After conditioning, electrical characterization was performed by first collectin
     \label{fig:transferAmm}
 \end{figure}
 
+\begin{color}{red}
+    \section*{Short explanation}
+
+Sweeping the gate to obtain transfer curves perturbs the ion-selective membrane and the electrical double layer (EDL), preventing the system from reaching its concentration-dependent equilibrium.  
+In contrast, during chronoamperometry the biases are held constant, allowing the ion-selective membrane to establish its proper electromotive force (EMF) and the EDL to equilibrate.  
+As a result, chronoamperometry yields a clean, near-Nernstian response, whereas transfer-curve measurements often produce distorted or ``wonky'' calibration curves.
+
+\section*{Why transfer sweeps give distorted calibration}
+
+\subsection*{1. Wrong observable for an ion-selective FET}
+
+For an ion sensor, the analyte concentration modifies the effective gate potential, i.e. it induces a threshold voltage shift $\Delta V_{\mathrm{th}}$, which manifests as a lateral shift of the transfer curve.
+If one compares the on-current $I_{\mathrm{on}}$ at a fixed $V_{\mathrm{G}}$, two effects become mixed:
+\begin{enumerate}
+    \item the analyte-induced shift $\Delta V_{\mathrm{th}}$, and
+    \item the nonlinear shape of the $I$--$V$ curve (since $g_m$ varies with $V_{\mathrm{G}}$; subthreshold and above-threshold regions behave differently).
+\end{enumerate}
+Small changes in $\Delta V_{\mathrm{th}}$ can therefore map to very different $\Delta I$ values depending on the chosen $V_{\mathrm{G}}$, leading to flattened or exaggerated calibration points.
+
+\subsection*{2. Sweep history, direction, and rate imprint memory}
+
+Back-and-forth sweeps continuously rearrange ions within the EDL and inside the membrane, and may also cause charge trapping at interfaces.
+Even if the device appears ``stable'' during blank measurements, each new analyte concentration establishes a new equilibrium that requires time to form.
+Collecting several fast transfer curves (e.g., seven in ten minutes) is often too short; 
+the last point being significantly lower is a typical signature of incomplete equilibration or drift.
+
+\subsection*{3. Polarization of the ion-selective membrane}
+
+An ion-selective membrane tends to set a concentration-dependent open-circuit potential.
+Sweeping $V_{\mathrm{G}}$ forces transient currents (both capacitive and leakage) through the gate path, charging the membrane and the Stern/diffuse layers.
+Consequently, the measured current at the end of a sweep reflects not only the analyte concentration but also the specific sweep path and internal RC time constants.
+
+\subsection*{4. Cumulative conditioning between steps}
+
+Repeated wide sweeps can precondition the membrane by locally depleting or accumulating ions near the interface.
+Early concentration points thus appear clustered (little net change), while later ones may collapse (depleted or overcharged interface), 
+producing the typical pattern in which the first few calibration points are similar and the last is very low.
+
+\subsection*{5. Series and parasitic effects}
+
+During sweeping, contact resistance, percolation effects in the channel (e.g., in SWCNT networks), and the local $C_{\mathrm{EDL}}$ vary with instantaneous gate bias.
+Sampling $I_{\mathrm{on}}$ at different times within a sweep therefore probes different transconductances $g_m$ and series resistances $R_{\mathrm{series}}$, which smears the apparent signal.
+
+\section*{Why chronoamperometry yields clean calibration}
+
+In chronoamperometry, $V_{\mathrm{DS}}$ and $V_{\mathrm{GS}}$ are held constant in the region of highest sensitivity.
+Under these steady-bias conditions, the ion-selective membrane and EDL reach equilibrium for each analyte concentration.
+The analyte primarily induces a threshold-voltage shift $\Delta V_{\mathrm{th}}$.
+At fixed $V_{\mathrm{G}}$, the resulting change in drain current is approximately
+
+\[
+\Delta I \approx - g_m \, \Delta V_{\mathrm{th}},
+\]
+
+where $g_m$ is the transconductance.
+Because $g_m$ is constant at fixed bias, $\Delta I$ scales linearly with the analyte-induced $\Delta V_{\mathrm{th}}$, yielding a clean, linear calibration curve.
+
+\end{color}
+
 Therefore, the strategy was revised and a new protocol was developed: the experiment was conducted with chronoampetrometry measurements, in which both \vds{} and \vgs{} were fixed and the current was measured over time. In Figure \ref{fig:normChronoAmm} it can be seen how the signal of the injections is much more visible and how they drastically affect the system, which then returns to equilibrium; this is demonstrated by the fact that the current (in modulus) increases very rapidly and very violently after each injection, and then drops and returns to the initial intensity. The calibration plot (Figure \ref{fig:calChronoAmm}) was made in this case by calculating the mean and standard deviation of the current measured during the last 5 minutes of each injection. In this it is possible to observe the expected behavior, \ie{} the signal increases linearly in response to increasing concentrations of analyte, with a sensitivity of \SI{0.14}{\uA \per decade} and a coefficient of determination of 0.94. Thus, it is possible to conclude that an ammonium ion sensor was successfully fabricated using a stable EG-CNTFET as the transducer.
+
+\begin{color}{teal}
+    \subsection*{Discussion and analysis of EGFET-based sensor performance}
+
+Great — you already have the key numbers, so there’s a lot more you can \textit{extract and discuss} from the same data without new experiments. Below I give (A) a compact list of derived metrics you can compute (with short how-to / formulas), (B) interpretation points and comparisons you can make in the discussion, (C) plot / presentation recommendations, and (D) two ready-to-use short paragraph templates (one technical, one more narrative) you can drop into your Results/Discussion.
+
+\bigskip
+
+\noindent\textbf{A — Useful figures of merit you can compute from existing data (with formulas / method)}
+\begin{enumerate}
+    \item \textbf{Limit of detection (LOD) and limit of quantification (LOQ)}  
+    Common formula (use blank noise or residuals from baseline):
+    \[
+    \text{LOD}=\frac{3\sigma_\text{blank}}{S},\qquad
+    \text{LOQ}=\frac{10\sigma_\text{blank}}{S}
+    \]
+    where \(S\) = slope of the calibration curve (e.g. \(\mu\)A/decade or \(\mu\)A/mM) and \(\sigma_\text{blank}\) is the standard deviation of the blank (or baseline) signal. If you don’t have blanks, use the standard deviation of the baseline/stabilization period residuals.
+
+    \item \textbf{Normalized sensitivity}  
+    Reporting sensitivity as relative change reduces device-to-device variability:
+    \[
+    \text{Normalized sensitivity} = \frac{\Delta I}{I_0\cdot \Delta(\log C)} \quad\text{or}\quad \frac{\Delta I/I_0}{\Delta(\log C)}
+    \]
+    where \(\Delta I\) is change in current, \(I_0\) baseline current and \(C\) concentration.
+
+    \item \textbf{Effective gate potential shift (\(\Delta V_{g,\text{eff}}\)) derived from current change}  
+    If you have the device transconductance \(g_m=\frac{dI}{dV_g}\) from transfer curves, you can convert a measured \(\Delta I\) into an equivalent gate voltage shift:
+    \[
+    \Delta V_{g,\text{eff}}=\frac{\Delta I}{g_m}.
+    \]
+    This is extremely useful to compare your results to potentiometric sensors (or to theoretical Nernst slopes).
+
+    \item \textbf{Dynamic (linear) range}  
+    You already have it (\(10^{-2}\) to \(10^{2}\) mM). Report as “range over which calibration fit is linear,” and show the number of decades (here 4 decades).
+
+    \item \textbf{Coefficient of determination and confidence intervals}  
+    You have \(R^2=0.94\). Also compute confidence interval of slope (from linear regression output) and the standard error of the slope — this quantifies uncertainty of sensitivity.
+
+    \item \textbf{Signal-to-noise ratio (SNR)}  
+    For a given concentration \(C\):
+    \[
+    \text{SNR}=\frac{\text{signal magnitude}}{\sigma_\text{noise}}=\frac{\Delta I(C)}{\sigma_\text{baseline}}.
+    \]
+    Report SNR at low, mid, high concentrations to show practical detectability.
+
+    \item \textbf{Precision / reproducibility (RSD)}  
+    If you have replicate measurements, compute relative standard deviation (RSD = standard deviation / mean $\times$ 100\%) at a few concentrations.
+
+    \item \textbf{Response time metrics (from chronoamperometry)}  
+    Compute \(t_{90}\) (time to reach 90\% of final change) or \(t_{50}\). If you have the chrono traces, extract these numbers and report them.
+
+    \item \textbf{Drift / baseline slope}  
+    You already linear-fit baseline over 30 min. Report the fitted slope (e.g. µA/min) and discuss magnitude relative to signal.
+
+    \item \textbf{Fit alternative models if appropriate}  
+    Try a semi-log plot (signal vs \(\log C\)), and also consider Langmuir or Hill fits if the binding/response is expected to saturate — these can yield an apparent \(K_d\) or Hill coefficient (if you have a sigmoidal shape).
+\end{enumerate}
+
+\bigskip
+
+\noindent\textbf{B — What to discuss / interpret (how to turn numbers into insight)}
+\begin{itemize}
+    \item \textbf{Quality of the sensor:} 4-decade linear range and \(R^2=0.94\) are strong — say what they imply for practical use (e.g., covers environmental/physiological ranges). Emphasize that sensitivity = 0.14 µA/decade is modest; convert to normalized sensitivity or to equivalent gate-voltage shift (using \(g_m\)) to compare with other works.
+    \item \textbf{Why chronoamperometry is more conclusive than transfer-curve-derived on-current:} link to your earlier observation about equilibration and EDL/ionophore dynamics — chrono holds biases fixed and lets the system reach its equilibrium transduction, whereas sweeping \(V_g\) perturbs the membrane/EDL and gives noisy transfer curves.
+    \item \textbf{Transduction mechanism:} use the \(\Delta V_{g,\text{eff}}\) trick to argue whether the response is mainly due to surface potential change (electrostatic gating) or something else (e.g., conductivity change in CNT network). If \(\Delta V_{g,\text{eff}}\) per decade is comparable to expected ion-sensitive potential change (or scaled Nernst), mention that.
+    \item \textbf{Limitations \& assumptions:} explicit about LOD calculation assumptions (blank noise used), ionic strength / activity vs concentration, Debye screening — especially if Debye length is short compared to receptor size (explain why aptamers/ionophores are suitable, and why large antibodies/enzymes would be hard).
+    \item \textbf{Reproducibility \& robustness:} if RSDs are acceptable (e.g., <10-15\%), say so. If you lack replicates, state it as a limitation.
+    \item \textbf{Practical implications:} translate sensitivity and LOD into real-world detection limits (e.g., concentrations relevant for water/biological samples) and comment whether the sensor is competitive for those uses.
+\end{itemize}
+
+\bigskip
+
+\noindent\textbf{C — Plots and presentation — what to include (and how to label them)}
+\begin{itemize}
+    \item Calibration curve: plot signal vs \(\log_{10}[C]\) (semi-log) and show linear regression, slope ± standard error, \(R^2\), and number of points. Add error bars for replicates if you have them.
+    \item \(\Delta I/I_0\) vs \(\log C\): normalized plot often reduces device-to-device spread.
+    \item Residuals plot for calibration: helps justify linear model (plot residuals vs \(\log C\)).
+    \item SNR vs concentration (or tabulate SNR at low, mid, high concentrations).
+    \item Chronoamperometry trace(s): show raw current vs time with the perturbation marked; overlay baseline linear fit and corrected trace (after subtracting baseline). Annotate \(t_{90}\) if you computed it.
+    \item Transconductance plot (from transfer curves): \(g_m(V_g)\) and indicate the operating \(V_g\) used in chrono — then show how you used \(g_m\) to compute \(\Delta V_{g,\text{eff}}\).
+    \item Table of figures-of-merit: Sensitivity, linear range, LOD, LOQ, \(R^2\), \(t_{90}\), RSD (if available).
+\end{itemize}
+
+\bigskip
+
+\noindent\textbf{D — Ready-to-use text: two short paragraph templates}
+
+\textbf{Technical (compact):}
+\begin{quote}
+Chronoamperometric measurements provided a clear calibration for ammonium: the sensor exhibited a linear response from \(10^{-2}\) to \(10^{2}\,\text{mM}\) (four decades), with a sensitivity of \(0.14\ \mu\text{A}\,\text{per decade}\) and \(R^{2}=0.94\). The limit of detection, estimated as \(3\sigma_{\text{baseline}}/S\), is [compute value here] and the limit of quantification (10σ/S) is [compute value here]. To facilitate comparison with potentiometric sensors, the measured current changes were converted into an equivalent gate-voltage shift using the device transconductance \(g_m\) (\(\Delta V_{g,\text{eff}}=\Delta I/g_m\)); this yielded an effective potential shift of $\approx$[value] mV per decade. The chrono results are more reliable than transfer-curve derived on-current because the latter are affected by perturbations of the ion-selective membrane and EDL during voltage sweeps, whereas chronoamperometry allows the functionalized gate to equilibrate at fixed bias.
+\end{quote}
+
+\textbf{Narrative (more explanatory):}
+\begin{quote}
+The chronoamperometry data demonstrate that the gate-functionalized EG-CNTFET can act as a selective ammonium transducer. Over a broad concentration range ($10^{-2}-10^2 mM$) the device shows a linear calibration (\(R^{2} = 0.94\)) and a sensitivity of 0.14 µA per decade. Using the baseline noise measured during the stabilization period, the LOD (3σ/S) is estimated at [value] and the LOQ (10σ/S) at [value]. Converting current changes into equivalent gate-voltage shifts via the measured transconductance shows that the observed signal corresponds to a potential modulation of approximately [value] mV per decade — consistent with an electrostatic gating mechanism mediated by the ionophore-containing membrane. Notably, the chronoamperometric protocol yields clearer behaviour than transfer-curve analysis, which appears “wonky” because sweeping the gate perturbs the membrane/EDL and prevents the system from reaching the quasi-equilibrium required for reliable transduction.
+\end{quote}
+
+\bigskip
+
+\noindent\textbf{E — Practical next steps (no new experiments required)}
+\begin{itemize}
+    \item Compute LOD/LOQ from baseline residuals and add to table.  
+    \item Extract \(g_m\) from transfer curve (slope at operating point) and compute \(\Delta V_{g,\text{eff}}\).  
+    \item Produce the plot set listed above (semi-log calibration, residuals, chrono traces with annotations, transconductance).  
+    \item Add a short paragraph comparing chrono and transfer-derived metrics and justify why you trust chrono numbers more.  
+    \item If you want to strengthen discussion mathematically, compute confidence intervals for slope and report slope ± standard error.
+\end{itemize}
+
+\bigskip
+
+If you want, I can:
+\begin{itemize}
+    \item give the \textbf{exact LaTeX equations} and an example of LOD/LOQ filled with numbers if you paste your baseline σ and the slope; or
+    \item generate a \textbf{ready-to-paste figure caption + table template} for your thesis that summarises all figures-of-merit.
+\end{itemize}
+
+\end{color}
 
 \begin{figure}
     \centering

@@ -1,5 +1,23 @@
 Electrolyte-gated field-effect transistors (EG-FETs) are a subgoup of field-effect transistors: they share the same design and concept, with the gate electrode controlling the current flowing between source and drain, through the application of a voltage on a dielectric material, that causes the formation of an electric field. While they share electrode design, they differ in the choice of dielectric: EG-FETs, as a matter of fact, employ high-capacitance electrolytes as dielectrics, which enable more efficient coupling between the gate and the channel; this phenomenon makes it possible to induce a strong electric field effect on the channel, even in the presence of small changes in gate voltage \citet{kimElectrolyteGated2013, wangElectrolytic2016}. The working mechanism that will be explained in detail in the paragraph \nameref{par:mechanismEGFET}.
 
+\begin{color}{red}
+In a conventional MOSFET, the gate couples to the channel through a thin dielectric layer, typically SiO$_2$ or a high-$k$ oxide. The gate capacitance per unit area is limited by
+\begin{equation}
+C_{\text{ox}} = \frac{\varepsilon_r \varepsilon_0}{t_{\text{ox}}},
+\end{equation}
+where $\varepsilon_r$ is the dielectric constant of the oxide and $t_{\text{ox}}$ its thickness. Strong gate control requires very thin oxides or high-$k$ materials, but thinning the oxide leads to increased leakage currents and reliability concerns.
+%
+In an electrolyte-gated FET (EGFET), the dielectric is replaced by an electrolyte. When a gate voltage is applied, ions in the electrolyte migrate and form an \emph{electric double layer} (EDL) at the gate/electrolyte and electrolyte/channel interfaces. Because the EDL is only a few nanometers thick, the resulting interfacial capacitance is very large:
+\[
+C_{\text{EDL}} \sim 10\text{--}100 \,\mu\text{F}\,\text{cm}^{-2},
+\]
+which is orders of magnitude higher than typical MOSFET oxide capacitances ($\sim 10$--$100 \,\text{nF}\,\text{cm}^{-2}$).
+%
+As a consequence, the electrostatic coupling between gate and channel is much more efficient in electrolyte-gated FETs. This allows operation at low voltages (often below $1\,$V), unlike MOSFETs which usually require several volts. Such efficient coupling is especially useful in applications such as bioelectronics and sensing.
+%
+On the other hand, the presence of mobile ions also slows down the device response compared to MOSFETs (ion motion is slower than electron motion), and issues of stability and reproducibility remain challenges.
+\end{color}
+
 In addition to their enhanced sensitivity, EG-FETs address some of the limitations of other devices by enabling the detection of biomolecules in their native aqueous environments, an essential feature for biological sensing applications \citep{wangElectrolytic2016}.
 
 \paragraph{Configurations of EG-FETs}

@@ -275,6 +275,26 @@ These models are based on physical laws governing charge transport, electrostati
 
 At the device level, continuum-based models, such as those used in Technology Computer-Aided Design (TCAD), solve systems of coupled partial differential equations, typically including Poisson's equation and carrier transport equations like the drift-diffusion model \citep{markowichDrift1990}. Poisson's equation describes the electrostatic potential distribution based on charge density \citep{delavariNernst2021}, while the drift-diffusion model describes the movement of charge carriers (electrons and holes) under the influence of electric fields and concentration gradients \citep{markowichDrift1990}. TCAD tools like Synopsys Sentaurus and Silvaco Atlas are widely used in the semiconductor industry to simulate transistor behavior and optimize device fabrication processes \citep{tungaPhysicsBased2023}. For instance, TCAD simulations can be used to optimize the doping profiles in a MOSFET to achieve desired threshold voltage and on-current characteristics.  In the context of Carbon Nanotube Field-Effect Transistors (CNTFETs), the self-consistent solution of the Poisson and Schrödinger equations using the Non-Equilibrium Green's Function (NEGF) formalism is a common approach, demonstrating the application of these fundamental equations at the nanoscale \citep{hassaniniaSimulation2008,zandShortChannel2020}. 
 
+\begin{color}{teal}
+AI Overview
+A continuum-based model treats matter as a continuous substance rather than as individual particles, using differential equations to describe properties like density, flow, and stress across space and time. These models are useful for simplifying complex systems, such as biological tissues, crowds, or engineering materials, by focusing on average behaviors and interactions at a macroscopic level. Examples include models for soil-water interactions, nanoparticle transport, and even conceptual models for stages of development. 
+How it Works
+Treating entities as continuous: Instead of tracking every individual atom or person, a continuum model considers them as a continuous medium. 
+Using average quantities: Concepts like average density, velocity, and stress are used to describe the system. 
+Applying partial differential equations: These equations relate the average quantities and describe their behavior over time and space, allowing for predictions about the overall system. 
+Applications
+Engineering and Materials Science: Used to model large-scale systems like hyperelastic composites, biological tissues, or the behavior of materials under stress and deformation. 
+Environmental Science: Employed to understand the transport of nanoparticles in soil and water or the flow of crowds, which are difficult to model at the individual particle level. 
+Conceptual Frameworks: The concept can also be applied to describe gradual processes, such as the life cycle of a tourist destination, where attitudes and community support change along a spectrum. 
+Advantages
+Computational Efficiency: By simplifying complexity, these models are more computationally efficient than detailed particle-based approaches. 
+Macroscopic Insights: They provide insights into large-scale phenomena that might be obscured by focusing on microscopic details. 
+Examples
+Fluid Dynamics: Modeling crowds as a fluid, where density and flow are key variables. 
+Soil-Water Interaction: Describing the mechanical behavior of soil by treating it as a continuous medium with interacting soil particles and water. 
+Destination Life Cycle: A conceptual model in tourism that represents a destination's development along a continuum of stages, from exploration to potential decline or rejuvenation. 
+\end{color}
+
 For systems where spatial detail and physical accuracy are critical, numerical methods such as the finite element method (FEM) and finite difference method (FDM) are employed \citep{jagotaFinite2013,moghadamDesign2013}. These methods are capable of handling complex geometries and coupled multiphysics scenarios, such as electro-thermal or electrochemical interactions \citep{jagotaFinite2013,drummondLoworder2015}. For instance, FEM can be used to simulate heat transfer, which is crucial for understanding the temperature distribution within a device where electrical power dissipation generates heat and the thermal conductivity of the materials influences heat flow \citep{jagotaFinite2013}. This type of analysis is essential for preventing thermal runaway and ensuring reliable operation. The finite difference method (FDM) is also used for numerical solutions in device modeling, such as discretizing the Poisson equation to determine the electrostatic potential and in simulating electrochemical devices like supercapacitors \citep{moghadamDesign2013,drummondLoworder2015}. 
 
 At finer scales, atomistic simulations like molecular dynamics (MD) or quantum mechanical models are used to understans nanoscale effects and material properties \citep{hayatiCNTMOSFET2010}. MD simulations, using software like LAMMPS or GROMACS, can predict the behavior of atoms in a transistor channel, revealing insights into electron mobility and scattering mechanisms. For example, MD simulations can be used to study the impact of surface roughness on electron transport in nanoscale transistors \citep{zhaoUnderstanding2018}.

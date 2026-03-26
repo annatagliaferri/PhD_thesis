@@ -195,3 +195,83 @@ An additional test was conducted to test the resilience of the devices to multip
 After this electrical characterization, parameters like the ON/OFF ratio (\ratio{}) and the threshold voltage (\vth{}) were calculated, to gather additional knowledge of device performance. In particular, Figure \ref{fig:avgOnOff} compares the trends of the ON/OFF ratio for devices without and with the lipophilic membrane. The bare devices exhibit a significant decrease in the ON/OFF ratio, dropping from 100 to 60. This reduction indicates a worsening in device performance over time. In contrast, devices with the encapsulated channel display a markedly different trend. After an initial drop from 17.63 to 9, the ON/OFF ratio exhibits a continuous linear increase, eventually reaching 24.51. This improvement suggests that the encapsulated devices have an enhanced performance at the end of the measurements.
 Figure \ref{fig:avgVth} displays the average \vth{} for both bare (red) and encapsulated (blue) devices, showing a comparison of the trends. It is immediately clear that this parameter is more easily comparable for the two devices than the ON/OFF ratio, as it has the same order of magnitude. The trends that the parameters display, though differ for the two cases: for the unprotected devices, \vth{} continuously increases in modulus, meaning that the device requires a higher gate voltage to reach the conductive state; indeed, the \vth{} at the beginning amounts to \SI{-0.421}{} $\pm$ \SI{0.105}{\V} and at the end it is \SI{-0.613}{} $\pm$ \SI{0.0225}{\V}. Conversely, the \vth{} of membrane-protected devices
 follows a similar trend to the \ion{}, in that it starts high, then drops very quickly at the beginning, only to linearly start increasing again. In this case, the \vth{} starts at \SI{-0.487}{} $\pm$ \SI{0.109}{\V} and ends at \SI{-0.570}{} $\pm$ \SI{0.0201}{\V}. Maintaining a lower \vth{} is particularly relevant for sensor applications, ensuring improved reproducibility, and lower power consumption over extended use. These findings further highlight the benefits of incorporating a protective membrane to enhance the stability and longevity of EG-CNTFETs.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{color}{red}
+    Physical interpretation (what these trends likely mean)
+
+1. Bare devices (100 → 60) \\
+Why high initially? The exposed CNT channel is more strongly coupled to the environment (oxygen, adsorbed water, ions), which can initially enhance carrier density (p-doping by oxygen, or adsorbed ionic species) and yield a large Ion/Ioff.\\
+Why the drop? Repeated biasing and ionic redistribution/trap filling likely reduce the net carrier density (desorption or neutralization of adsorbates, filling of slow traps), or increase series/contact resistance, causing 
+Ion to fall more than
+Ioff. This reduces the on/off ratio. The concurrent reduction of hysteresis supports an equilibration/trap-filling picture: slow states become stabilized, removing history dependence but also reducing free carriers. \\
+%
+Implication: Bare devices give higher instantaneous contrast (good for sensitivity) but show degradation/drift that may require conditioning or recalibration. \\
+2. Encapsulated devices (17.6 → 9 → 24.5)\\
+Why low initially? The lipophilic membrane partially shields the CNTs from the electrolyte and ambient, which can reduce effective gate coupling (smaller EDL capacitance or larger distance) or alter initial wetting at the CNT/membrane/electrolyte interface. Reduced gate coupling yields smaller 
+Ion (or relatively larger 
+Ioff), hence a low initial ratio. \\
+Why the early dip and recovery? The initial rapid drop (17.6 → 9) likely reflects an immediate rearrangement (poor wetting, trapped solvent/air pockets, or initial ionic distribution under the membrane) that transiently worsens contrast. Over time, ions slowly permeate/redistribute across or beneath the membrane, traps equilibrate, and the EDL forms more stably, improving gate action—this produces the gradual increase to ≈24.5. The hysteresis disappearing to zero is again consistent with trap/ion equilibration. \\
+%
+Implication: Encapsulation reduces exposure-related variability and preserves environment/biocompatibility, but it comes at the cost of weaker initial gate coupling; however, with conditioning the device partially recovers and becomes more stable. \\
+%
+Which is “better”? (practical view for sensors)\\
+%
+Higher absolute on/off ratio (as in the bare devices initially and at the end) generally improves signal contrast and limit-of-detection — desirable for sensing.\\
+%
+Stability and repeatability (small drift, reproducible behavior after conditioning) are equally important for reliable measurements. A device that starts high but drifts unpredictably is problematic in practical sensing without re-calibration.\\
+%
+In your case: the bare devices offer higher absolute on/off values (even after the drop they end higher than encapsulated devices), which is advantageous for sensitivity. The encapsulated devices, though lower in absolute ratio, show a predictable conditioning trend (dip then linear recovery) and may offer better long-term environmental protection — a trade-off between instant sensitivity (bare) and controlled environment / potential longevity (encapsulated).
+\end{color}
+
+\begin{color}{teal}
+A — Suggested concise description (ready for Results / Discussion) \\
+At the beginning of the measurement the threshold voltages are close (bare: Vth
+=−0.421 V; encapsulated: 
+Vth = −0.418 V). After one hour of repeated transfer sweeps, the bare devices shift negatively to 
+−0.613 V, while the encapsulated devices display an initial rapid negative excursion followed by a gradual recovery, stabilizing near 
+−0.57 V. In both cases Vth shifts in the negative direction overall, but the encapsulated devices exhibit a transient response (dip + recovery) whereas the bare devices show a monotonic negative drift. These trends indicate time-dependent changes at the semiconductor–electrolyte interface (for example trap filling/charge redistribution, de-doping or ionic rearrangement) that alter the effective gate bias required to turn the channel on. \\
+%
+B — Physical interpretations (mechanisms and how they map to the observed trends) \\
+1. Negative shift of Vth — what it means physically \\
+%
+A negative shift of threshold means the transistor requires a more negative gate voltage to reach the same conduction level (i.e., the device has become effectively less n-doped or more p-doped in the sense that a stronger negative gate is needed for the ON state in a p-type device, or equivalently that the channel carrier density for a given gate bias has decreased). Mechanistically this can reflect:
+\begin{itemize}
+    \item loss of mobile carriers in the channel (de-doping),
+    \item an increase in trapped negative charge near the channel (which must be compensated by more negative gate to turn on),
+    \item reduced effective gate coupling (lower gate capacitance), so a larger |Vgs| is needed to induce the same channel charge.
+\end{itemize}
+
+2. Why bare devices might shift monotonically negative (−0.421 → −0.613 V)
+\begin{itemize}
+    \item Adsorbate loss / de-doping: Exposed CNTs can be p-doped by adsorbed oxygen/water species. Repeated biasing and ionic reorganization can desorb or neutralize some of these dopants, reducing hole density and requiring a more negative gate to reach the same current.
+    \item Progressive trap filling that removes free carriers: Slow traps may capture carriers over successive sweeps; filled traps reduce free-carrier density, shifting Vth negatively.
+    \item Contact / series resistance increase: If contact resistance increases with time, apparent threshold extracted by typical methods can shift; however, contact changes alone usually also change the slope and absolute current strongly.
+\end{itemize}
+
+The monotonic negative drift and simultaneous reduction of Id you reported are consistent with de-doping / trap-filling as dominant causes. \\
+
+3. Why encapsulated devices show a dip then partial recovery (−0.418 → dip → −0.57)
+\begin{itemize}
+    \item Initial reconfiguration (wetting/ion redistribution under the membrane): The membrane initially impedes electrolyte access and EDL formation. The first sweeps may displace trapped air pockets or cause a rapid local rearrangement of ions beneath/within the membrane, producing a sudden negative shift (worst gating).
+    \item Slow equilibration/permeation: Over time ions slowly penetrate/rearrange so the gate coupling partially recovers; traps may fill early then some reversible rebalancing occurs, moving Vth back less negative.
+    \item Membrane-limited kinetics: The membrane slows ionic exchange and oxygen/water interactions, so the dynamics show a transient response followed by a slower recovery rather than a monotonic drift.
+This transient + recovery pattern is characteristic of systems where the gating environment is physically constrained (membrane) and requires time to reach steady ionic/electrochemical conditions.
+\end{itemize}
+
+4. Why both device types converge to more negative Vth \\
+Even if mechanisms differ in kinetics, both may trend negative because repeated electrical stressing tends to:
+\begin{itemize}
+    \item occupy slow traps,
+    \item modify the local chemical environment (partial desorption or redistribution),
+    \item or cause slight permanent changes in the interface chemistry — all of which reduce channel carrier density or effective coupling.
+\end{itemize}
+
+D — Implications for device performance and sensor operation
+
+Shift magnitude and direction matter: a negative shift of Vth changes the device operating point. For sensors that rely on small shifts of gate potential caused by binding events, baseline drifting of Vth reduces reliability and requires recalibration.
+
+Encapsulation trade-off: the membrane slows environmental effects and can make behavior more predictable (conditioning then slow recovery), but it also reduces initial gate coupling and changes the time-evolution of Vth . Bare devices may offer stronger initial gating (higher sensitivity) but suffer monotonic drifts that harm reproducibility.
+
+Practical strategy: condition devices (perform a defined number of sweeps until Vth stabilizes) before measuring analytes, or include reference calibration to correct for drift. For long-term sensing, encapsulation may still be preferable if it reduces variability across samples and protects from biofouling, despite slower equilibration.
+\end{color}
