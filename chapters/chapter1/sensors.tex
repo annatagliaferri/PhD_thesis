@@ -125,13 +125,14 @@ the oxidation of the substrate, which donates electrons to oxygen, thus forming
 a constant potential generating a detectable signal \citep{liuReview2021}.
 
 Another widely used class of chemical recognition elements is that of
-molecularly imprinted polymers (MIPs): these are synthetic molecules known for
-their high stability, and resilience under harsh conditions
-\citep{uzunMolecularlyimprinted2016}. Indeed, these polymers are molded using
-the target analyte as template molecule to create cavities tailored to its size,
-shape, and interaction points; once the template is removed, the MIP can bind to
-the analyte of interest with high selectivity and specificity, allowing for high
-reliability in sensing applications \citep{hassanBiomimetic2019}.
+molecularly imprinted polymers (MIPs, Figure \ref{fig:mips}): these are
+synthetic molecules known for their high stability, and resilience under harsh
+conditions \citep{uzunMolecularlyimprinted2016}. Indeed, these polymers are
+molded using the target analyte as template molecule to create cavities tailored
+to its size, shape, and interaction points; once the template is removed, the
+MIP can bind to the analyte of interest with high selectivity and specificity,
+allowing for high reliability in sensing applications
+\citep{hassanBiomimetic2019}.
 
 Affinity-based recognition elements are also known for their high specificity.
 This type of recognition relies on mechanisms that are often driven by
@@ -140,20 +141,21 @@ recognition is the use of nickel ions (\ce{Ni^{2+}}), which exhibit a specific
 affinity for the imidazole ring found in biological molecules, including
 histamine \citep{fukushimaColorimetric2021}.
 
-At the forefront of biological recognition elements there are antibodies.
-Structurally, they are Y-shaped proteins where two heavy chains and two light
-chains are linked by a series of disulfide bonds, with the paratope located at
-the terminal ends of the arms responsible for recognizing specific epitopes on
-the target analyte \citep{moralesGuide2018}. While versatile and effective,
-antibodies are bulky molecules: this can make the detection challenging when
-working with sensors where the distance of the analyte from the sensing elements
-plays a role \citep{nakatsukaAptamer2018, shkodraElectrolytegated2021}. To
-overcome this limitation, antibody fragments, such as Fab fragments, can be
-cleaved using pepsin protease; the smaller fragments retain the paratope
-fraction of the receptor, thus maintaining the ability to bind the target while
-reducing steric hindrance \citep{crivianu-gaitaAptamers2016}.
+At the forefront of biological recognition elements there are antibodies (Figure
+\ref{fig:ab}). Structurally, they are Y-shaped proteins where two heavy chains
+and two light chains are linked by a series of disulfide bonds, with the
+paratope located at the terminal ends of the arms responsible for recognizing
+specific epitopes on the target analyte \citep{moralesGuide2018}. While
+versatile and effective, antibodies are bulky molecules: this can make the
+detection challenging when working with sensors where the distance of the
+analyte from the sensing elements plays a role \citep{nakatsukaAptamer2018,
+shkodraElectrolytegated2021}. To overcome this limitation, antibody fragments,
+such as Fab fragments, can be cleaved using pepsin protease; the smaller
+fragments retain the paratope fraction of the receptor, thus maintaining the
+ability to bind the target while reducing steric hindrance
+\citep{crivianu-gaitaAptamers2016}.
 %
-Another promising biological recognition element is represented by aptamers:
+Another promising biological recognition element is represented by aptamers (Figure \ref{fig:apta}):
 these are short nucleotide sequences carefully assembled to bind target analytes
 with high specificity and affinity \citep{shkodraElectrolytegated2021}. Upon
 interaction with the analyte, aptamers undergo conformational changes which
@@ -165,15 +167,16 @@ filaments must undergo a cyclic process for optimizing aptamer-target
 interactions, that is Systematic Evolution of Ligands by Exponential Enrichment
 (SELEX) \citep{ellingtonVitro1990, tuerkSystematic1990}.
 %
-Finally, enzymes are a subgroup of proteins that can selectively bind their
-analytes through electrostatic forces, hydrogen bonding, and other non-covalent
-interactions, and catalyze a reaction (cfr. metal oxides). The characteristic
-that makes them attractive as biorecognition elements for sensors is their
-ability to regenerate in physiological conditions, thus paving the way for the
-development of reusable sensors \citep{bocanegra-rodriguezNew2020}. Despite
-this, their main limitation lies in their low stability, as they are prone to
-denaturation when exposed to changes environmental conditions, like salt
-concentration, pH, or temperature \citep{herletNew2017}.
+Finally, enzymes (an example can be seen in Figure \ref{fig:enz}) are a subgroup
+of proteins that can selectively bind their analytes through electrostatic
+forces, hydrogen bonding, and other non-covalent interactions, and catalyze a
+reaction (cfr. metal oxides). The characteristic that makes them attractive as
+biorecognition elements for sensors is their ability to regenerate in
+physiological conditions, thus paving the way for the development of reusable
+sensors \citep{bocanegra-rodriguezNew2020}. Despite this, their main limitation
+lies in their low stability, as they are prone to denaturation when exposed to
+changes environmental conditions, like salt concentration, pH, or temperature
+\citep{herletNew2017}.
 
 \begin{figure}[!ht]
     \centering
@@ -197,21 +200,21 @@ concentration, pH, or temperature \citep{herletNew2017}.
         \label{fig:ab}
     }
     \hfill
-    \subfloat[Enzymes]{%
-        \includegraphics[width=0.3\textwidth]{figures/chapter1/sensors/Fig1_Enzyme.png}
-        \label{fig:enz}
-    }
-    \hfill
     \subfloat[Aptamers]{%
         \includegraphics[width=0.3\textwidth]{figures/chapter1/sensors/Fig1_Aptamer.pdf}
         \label{fig:apta}
+    }
+    \hfill
+    \subfloat[Enzymes]{%
+        \includegraphics[width=0.3\textwidth]{figures/chapter1/sensors/Fig1_Enzyme.png}
+        \label{fig:enz}
     }
     \caption{This figure depicts five different types of recognition elements commonly employed in sensors and biosensors:
     (a) Nanozymes are metal nanoparticles with enzyme-like properties: the most common nanozyme activities are here shown, \ie{} oxidase, catalase, peroxidase, and superoxide dismutase.
     (b) Molecularly imprinted polymers (MIPs) are synthetic recognition elements synthesized through the polymerization of functional monomers around a template molecule; the template is then removed leaving highly specific binding sites for the target analyte.
     (c) Antibodies are molecules of the immune system, widely used for their high specificity in binding to target antigens. They are proteins assembled in a Y shape composed of two light and two heavy chains connected by disulfide bonds. The target analyte binds the antibody in the paratope portion, \ie{} at the antigen-binding sites.  
-    (d) Enzymes are proteins able to selectively catalyze reactions upon their targets. Here is depicted the three-dimensional crystal structure of \textit{E.coli} catalase (PDB ID: 1IPH). Retrieved from the Protein Data Bank \citep{bravoCrystal1995,bravoRCSB}.
-    (e) Aptamers are short, single-stranded oligonucleotides that can fold into specific structures, enabling them to bind to target molecules with high affinity, offering a versatile alternative to antibodies in sensor design.}
+    (d) Aptamers are short, single-stranded oligonucleotides that can fold into specific structures, enabling them to bind to target molecules with high affinity, offering a versatile alternative to antibodies in sensor design.
+    (e) Enzymes are proteins able to selectively catalyze reactions upon their targets. Here is depicted the three-dimensional crystal structure of \textit{E.coli} catalase (PDB ID: 1IPH). Retrieved from the Protein Data Bank \citep{bravoCrystal1995,bravoRCSB}.}
     \label{fig:recognitionElements}
 \end{figure}
 
