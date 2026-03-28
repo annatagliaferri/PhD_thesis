@@ -4,26 +4,30 @@
 \begin{figure}[h]
     \centering
     \includegraphics[width = 0.8\textwidth]{figures/chapter2/litho/Fig8_litho.pdf}
-    \caption{}
+    \caption{Overview of the photolithographic fabrication steps for the EG-FET device. The process starts with photoresist deposition, then it shows UV exposure through a patterned mask to define the device geometry, and subsequent development to remove the unexposed regions. In the end, an optical microscope image of the patterned interdigitated electrodes of the fabricated device.}
     \label{fig:litho}
 \end{figure}
 
-Photolithography is an ancient technique that uses light (usually ultraviolet) to very precisely transfer a pattern onto a substrate, and is often used to create the very small structures typical of electronics. The EG-FET fabricated in this project is no exception.
+Photolithography is an ancient technique that uses light (usually ultraviolet)
+to very precisely transfer a pattern onto a substrate.
 
-The photolithography process began by thoroughly cleaning the polyimide (PI) substrate by leaving it for \SI{5}{\min} in an ultrasound bath in acetone, followed by an ultrasound bath in isopropyl alcohol for additional \SI{5}{\min}.
-Then, the substrate was dried in an oven for \SI{24}{\hour} at \SI{200}{\celsius}, with the aim of removing any residual moisture and solvents. This procedure ensured that the surface was uncontaminated and ready for the following steps.
+The photolithography process began by thoroughly cleaning the polyimide (PI)
+substrate by leaving it for \SI{5}{\min} in an ultrasound bath in acetone,
+followed by an ultrasound bath in isopropyl alcohol for additional \SI{5}{\min}.
+Then, the substrate was dried in an oven for \SI{24}{\hour} at
+\SI{200}{\celsius}, with the aim of removing any residual moisture and solvents.
+This procedure ensured that the surface was uncontaminated and ready for the
+following steps, shown in Figure \ref{fig:litho}.
 
-After cleaning, the substrate underwent a pre-baking step on a hotplate at \SI{115}{\celsius} for \SI{5}{\minute}, followed by \SI{5}{\minute} in a 
-To further prepare the substrate, it was exposed \SI{5}{\minute} to hexamethyldisilazane (HMDS) environment, where the resulting vapour reacts with the surface, forming a hydrophobic layer and preventing moisture formation, which could interfere in the subsequent adhesion between the substrate and the photoresist \citep{pollentierBake2022}.
+After cleaning, the substrate underwent a pre-baking step on a hotplate at \SI{115}{\celsius} for \SI{5}{\minute}, followed by \SI{5}{\minute} in a hexamethyldisilazane (HMDS) environment, whose vapour reacts with the surface, forming a hydrophobic layer and avoiding moisture formation; this step is supposed to favour photoresist adhesion to the substrate by preventing the interference of humidity \citep{pollentierBake2022}.
 
-Photoresist was then deposited using a spin coater; the thickness and uniformity was controlled by appropriately adjusting the speed and time of rotation.
-It is now important to note that photoresists are categorized as positive and negative, depending on how the solubility changes upon light exposure. Indeed, in positive photoresists, like AZ 1518, light exposure causes polymer chains to break down, making the exposed areas more soluble in the developer. When he exposed regions are removed, they leave a pattern corresponding to the mask. For negative photoresists, like ma-N 1420, the one used in this project, UV exposure cross-links polymer chains, making the exposed areas less soluble in the developer. The unexposed regions are subsequently removed, leaving the inverse pattern of the mask.
+Photoresist was then deposited using a spin coater; the thickness and uniformity was controlled by appropriately adjusting the speed and time of rotation. Indeed, to reach optimal deposition, the spin coater was set to \SI{3000}{rpm}, with a spin acceleration of \SI{750}{rpm/s} and a total spin time of \SI{34}{\second}.
 
 After photoresist deposition, the substrate underwent post-baking on a hotplate at \SI{100}{\celsius}; this step was needed to stabilize the photoresist layer and to improve its chemical resistance for later steps, ultimately ensuring high resolution patterning during UV exposure and development \citep{miyajimaHighaspectratio1995}.
 
 The substrate with the photoresist was then aligned with a photomask containing the desired pattern. UV light was used to expose the photoresist through the mask, transferring the pattern onto it. The exposure dose was set to \SI{279.48}{\mJ/\cm\squared} to ensure proper resolution and pattern fidelity.
 
-After exposure, the substrate underwent development to remove the unexposed areas of the photoresist. MA-D533/S developer, an aqueous-alkaline surfactant containing tetramethylammonium hydroxide (TMAH), was chosen for its compatibility with the ma-N 1420 photoresist. The PI substrate was left in the developer bath for \SI{2.5}{\minute}, then thoroughly rinsed with abundant \ce{diH2O}, ensuring optimal resolution and edge definition of the developed pattern.
+After exposure, the substrate underwent development to remove the unexposed areas of the photoresist. MA-D533/S developer, an aqueous-alkaline surfactant containing tetramethylammonium hydroxide (TMAH), was chosen for its compatibility with the ma-N 1420 photoresist. The PI substrate was left in the developer bath for \SI{2.5}{\minute}, then thoroughly rinsed with abundant \ce{diH2O}, ensuring removal of all unexposed material, thus achieving optimal resolution and edge definition of the developed pattern.
 
 \subsection{Electrode deposition}
 \label{sec:eavporation}
