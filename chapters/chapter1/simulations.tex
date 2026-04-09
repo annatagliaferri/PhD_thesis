@@ -270,10 +270,31 @@
 % %
 % All governing equations and numerical formulations used in this study are presented in detail in Chapter \ref{cap:chapter5}.}
 
-Mathematical modeling and simulation are fundamental complementary activities in modern electronics, especially useful for device analysis and design. With the increasing complexity of electronic systems and the miniaturization of device architectures, the computational approaches can help to predict physical behavior, optimize performance, and reduce the number of experiments needed \citep{markowichDrift1990}. For example, simulating a complex integrated circuit with billions of transistors allows engineers to identify potential bottlenecks and optimize power consumption before fabrication, saving significant time and resources \citep{zandShortChannel2020}. Consider the design of a high-performance microprocessor; without simulation, optimizing the placement of billions of transistors to minimize signal delay and power dissipation would be virtually impossible. In the semiconductor industry, numerical simulation aims to replace as much laboratory testing as possible to minimize costs. Physically detailed simulations are crucial for addressing challenges in nanoscale devices, capturing off-equilibrium transport and quantum mechanical effects \citep{hayatiCNTMOSFET2010}. Moreover, with the increased miniaturization of semiconductor devices, simulation becomes even more important as physical limits are approached and quantum mechanical effects play a larger role \citep{zandShortChannel2020}. 
-These models are based on physical laws governing charge transport, electrostatics, thermodynamics, and quantum phenomena, which are translated into mathematical formulations solvable through various numerical techniques \citep{delavariNernst2021,hassaniniaSimulation2008,moghadamDesign2013}. A range of modeling techniques is available depending on the desired level of abstraction and the physical scales involved. 
+Mathematical modeling and simulation are important complementary approaches in modern electronics, that support experimental procedures and aid to optimize electrode design and obtain a deeper understanding of the underlying mechanisms that govern the performance of the device. With the increasing complexity of electronic systems and the miniaturization of device architectures, these computational methods can help to predict behavior, optimize performance, and reduce the number of experiments needed \citep{markowichDrift1990}. 
+%In the semiconductor industry, numerical simulation aims to replace as much laboratory testing as possible to minimize costs. Physically detailed simulations are crucial for addressing challenges in nanoscale devices, capturing off-equilibrium transport and quantum mechanical effects \citep{hayatiCNTMOSFET2010}. Moreover, with the increased miniaturization of semiconductor devices, simulation becomes even more important as physical limits are approached and quantum mechanical effects play a larger role \citep{zandShortChannel2020}. 
+These models are based on physical laws that describe charge transport, electrostatics, and thermodynamics, which are translated into mathematical formulations solvable through various numerical techniques \citep{delavariNernst2021,hassaniniaSimulation2008,moghadamDesign2013}. %A range of modeling techniques is available depending on the desired level of abstraction and the physical scales involved. 
 
 At the device level, continuum-based models, such as those used in Technology Computer-Aided Design (TCAD), solve systems of coupled partial differential equations, typically including Poisson's equation and carrier transport equations like the drift-diffusion model \citep{markowichDrift1990}. Poisson's equation describes the electrostatic potential distribution based on charge density \citep{delavariNernst2021}, while the drift-diffusion model describes the movement of charge carriers (electrons and holes) under the influence of electric fields and concentration gradients \citep{markowichDrift1990}. TCAD tools like Synopsys Sentaurus and Silvaco Atlas are widely used in the semiconductor industry to simulate transistor behavior and optimize device fabrication processes \citep{tungaPhysicsBased2023}. For instance, TCAD simulations can be used to optimize the doping profiles in a MOSFET to achieve desired threshold voltage and on-current characteristics.  In the context of Carbon Nanotube Field-Effect Transistors (CNTFETs), the self-consistent solution of the Poisson and Schrödinger equations using the Non-Equilibrium Green's Function (NEGF) formalism is a common approach, demonstrating the application of these fundamental equations at the nanoscale \citep{hassaniniaSimulation2008,zandShortChannel2020}. 
+
+\begin{color}{teal}
+AI Overview
+A continuum-based model treats matter as a continuous substance rather than as individual particles, using differential equations to describe properties like density, flow, and stress across space and time. These models are useful for simplifying complex systems, such as biological tissues, crowds, or engineering materials, by focusing on average behaviors and interactions at a macroscopic level. Examples include models for soil-water interactions, nanoparticle transport, and even conceptual models for stages of development. 
+How it Works
+Treating entities as continuous: Instead of tracking every individual atom or person, a continuum model considers them as a continuous medium. 
+Using average quantities: Concepts like average density, velocity, and stress are used to describe the system. 
+Applying partial differential equations: These equations relate the average quantities and describe their behavior over time and space, allowing for predictions about the overall system. 
+Applications
+Engineering and Materials Science: Used to model large-scale systems like hyperelastic composites, biological tissues, or the behavior of materials under stress and deformation. 
+Environmental Science: Employed to understand the transport of nanoparticles in soil and water or the flow of crowds, which are difficult to model at the individual particle level. 
+Conceptual Frameworks: The concept can also be applied to describe gradual processes, such as the life cycle of a tourist destination, where attitudes and community support change along a spectrum. 
+Advantages
+Computational Efficiency: By simplifying complexity, these models are more computationally efficient than detailed particle-based approaches. 
+Macroscopic Insights: They provide insights into large-scale phenomena that might be obscured by focusing on microscopic details. 
+Examples
+Fluid Dynamics: Modeling crowds as a fluid, where density and flow are key variables. 
+Soil-Water Interaction: Describing the mechanical behavior of soil by treating it as a continuous medium with interacting soil particles and water. 
+Destination Life Cycle: A conceptual model in tourism that represents a destination's development along a continuum of stages, from exploration to potential decline or rejuvenation. 
+\end{color}
 
 For systems where spatial detail and physical accuracy are critical, numerical methods such as the finite element method (FEM) and finite difference method (FDM) are employed \citep{jagotaFinite2013,moghadamDesign2013}. These methods are capable of handling complex geometries and coupled multiphysics scenarios, such as electro-thermal or electrochemical interactions \citep{jagotaFinite2013,drummondLoworder2015}. For instance, FEM can be used to simulate heat transfer, which is crucial for understanding the temperature distribution within a device where electrical power dissipation generates heat and the thermal conductivity of the materials influences heat flow \citep{jagotaFinite2013}. This type of analysis is essential for preventing thermal runaway and ensuring reliable operation. The finite difference method (FDM) is also used for numerical solutions in device modeling, such as discretizing the Poisson equation to determine the electrostatic potential and in simulating electrochemical devices like supercapacitors \citep{moghadamDesign2013,drummondLoworder2015}. 
 
@@ -299,61 +320,122 @@ In biosensing, EG-FETs can detect the presence of specific biomolecules by measu
 The Finite Element Method (FEM) is a computational technique used to aaproximate the solution of nonlinear problems, especially in the fields of mechanical and electronic engineering, fluid dynamics, and related fields \citep{zienkiewiczFinite2013}. The underlying principle is to discretize the domain of partial differential equations (PDEs) into smaller elements, enabling analysis of structures, fields, and electromagnetic problems \citep{loggAutomating2007}. This discretization occurs by dividing each domain of the object under investigation into many, yet finite, smaller elements (hence the name Finite Element Method), typically segments, or triangles and squares, or tetrahedrons and cubes, depending on the shape and dimensionality of the model \citep{comsolCOMSOL_manual}. It is important to note that the elements are interconnected by nodal points, boundary lines, or surfaces, depending on the dimensionality of the problem, at which points equations governing their interactions are solved. This discretization process is commonly referred to as meshing. Once the mesh is created, each element is assigned a set of properties that depend on the type of problem being solved, including material type, electrical conductivity, charge mobility, salt concentration, and more. With these operations, a linear system of equations is generated, and boundary conditions are set to solve them. At this point, the system is solved using numerical methods for each of the previously generated elements. The elemental solutions are finally combined to provide the global solution of the system \citep{zienkiewiczFinite2013}.
 
 \subsubsection{COMSOL: A tool for finite element modeling and solving}
-The FEM explained in Section \ref{sec:FEM} is useful for solving complex problems, with PDEs that need to be applied to thousands, possibly millions, of elements. To address this issue and facilitate the setup, several modeling and simulation software tools have been developed, one of the most widely used being COMSOL Multiphysics \citep{comsolCOMSOL_manual}.
+The FEM explained in Section \ref{sec:FEM} is useful for solving complex
+problems, with PDEs that need to be applied to thousands, possibly millions, of
+elements. To address the issue of the large number of equations to be solved and
+facilitate the setup, several modeling and simulation software tools have been
+developed, one of the most widely used being COMSOL Multiphysics
+\citep{comsolCOMSOL_manual}.
 
 \paragraph{Multiphysics}
-COMSOL offers a multiphysics platform that allows users to simulate a wide range of physical phenomena by combining different physical models, including, but not limited to, electrochemistry, charge transport, heat transfer, fluid dynamics and many more \citep{comsolCOMSOL_manual}. Other than the physics modules, the COMSOL model builder allows to choose the most appropriate space dimension for the simulations, offering one-dimensional (1D), two-dimensional (2D), and three-dimensional (3D) models \citep{comsolCOMSOL_manual}. These features make it ideal to model EG-FET devices, as they allow the coupling of the electrical and chemical processes that govern their operation through the pre-installed modules that already contain the needed system of equations, namely the \emph{Electrostatics} and the \emph{Transport of Diluted Species} modules \citep{delavariNernst2021}; moreover, they allow to simplify the problem by reducing the dimensionality to 1D of the model and build up again its complexity, as more and more knowledge is gained along the way. The power of COMSOL also lies in the fact that it is possible to simulate biological processes around the biorecognition elements (i.e., the interaction between these and the transducer, as well as the interaction between these and the analyte of interest), coupling them with the physics of the transducer, thus enabling the simulation of the operating mechanisms of a biosensor.
+COMSOL indeed offers a multiphysics platform that allows users to simulate a
+wide range of physical phenomena by combining different physical models,
+including, but not limited to, electrochemistry, charge transport, heat
+transfer, fluid dynamics and many more \citep{comsolCOMSOL_manual}. Other than
+the physics modules, the COMSOL model builder allows to choose the most
+appropriate space dimension for the simulations, offering one-dimensional (1D),
+two-dimensional (2D), and three-dimensional (3D) models
+\citep{comsolCOMSOL_manual}. These features make it ideal to model EG-FET
+devices, as they allow the coupling of the electrical and chemical processes
+that govern their operation through the pre-installed modules that already
+contain the needed system of equations, namely the \emph{Electrostatics} and the
+\emph{Transport of Diluted Species} modules \citep{delavariNernst2021};
+moreover, they allow to simplify the problem by reducing the dimensionality to
+1D of the model and build up again its complexity, as more and more knowledge is
+gained along the way. The power of COMSOL also lies in the fact that it is
+possible to simulate biological processes around the biorecognition elements
+(i.e., the interaction between these and the transducer, as well as the
+interaction between these and the analyte of interest), coupling them with the
+physics of the transducer, thus enabling the simulation of the operating
+mechanisms of a biosensor.
 
 \subparagraph{Electrostatics module}
-The \emph{Electrostatics} module allows the study of the electrical phenomena that govern the operation of a system. In particular, it enables the calculation of the electric field, the electric displacement field, and potential distributions in dielectric materials, within which the distribution of electric charges is known \citep{comsolCOMSOL_manual}. More specifically, the module aims to calculate the electric potential $V [V]$ as dependent variable, by solving Gauss's law for electricity \citep{grantElectromagnetism2008}:
+The \emph{Electrostatics} module allows the study of the electrical phenomena
+that regulate the operation of a device. In particular, it enables the
+calculation of the electric field, the electric displacement field, and
+potential distributions in dielectric materials, within which the distribution
+of electric charges is known \citep{comsolCOMSOL_manual}. More specifically, the
+module aims to calculate the electric potential $V [V]$ as dependent variable,
+by solving Gauss's law for electricity \citep{grantElectromagnetism2008}:
 %
 \begin{equation}
     \Phi_E = \dfrac{Q}{\varepsilon_0}
 \end{equation}
 %
-where $\Phi_E$ is the electric flux, which represents the amount of electric field passing through a closed surface $S$ that surrounds a volume. The total charge $Q$ contained within this volume and the electric constant $\varepsilon_0$ are also factors in this relationship. The electric flux $\Phi_E$ can also be expressed as the surface integral of the electric field over $S$ \citep{purcellElectricity2013}: %https://archive.org/details/ElectricityAndMagnetismPurcell3rdEdition/page/n101/mode/2up pag.78
+where $\Phi_E$ is the electric flux, which represents the amount of electric
+field passing through a closed surface $S$ that surrounds a volume, $Q$ is the
+total charge contained within this volume, and $\varepsilon_0$ is the vacuum
+permittivity. The electric flux $\Phi_E$ can also be expressed as the surface
+integral of the electric field $\mathbf{E}$ over $S$
+\citep{purcellElectricity2013}:
+%https://archive.org/details/ElectricityAndMagnetismPurcell3rdEdition/page/n101/mode/2up
+pag.78
 %
 \begin{equation}
-    \Phi _{E}= \oiint_S \mathbf {E} \cdot \mathrm {d} \mathbf {A}.
+    \Phi _{E}= \oiint_S \mathbf{E} \cdot \mathrm{d} \mathbf{A}.
 \end{equation}
 %
-By the divergence theorem, Gauss's law can alternatively be written in the differential form \citep{purcellElectricity2013}: %https://archive.org/details/ElectricityAndMagnetismPurcell3rdEdition/page/n101/mode/2up pag. 80
+By the divergence theorem, Gauss's law can alternatively be written in the
+differential form \citep{purcellElectricity2013}:
+%https://archive.org/details/ElectricityAndMagnetismPurcell3rdEdition/page/n101/mode/2up pag. 80
 %
 \begin{equation}
     \label{eq:diff_equival}
      \nabla \mathbf{E} = \dfrac{\rho}{\varepsilon_0},
 \end{equation}
 %
-where $\nabla \mathbf{E}$ is the divergence of the electric field, $\varepsilon_0$ is the vacuum permittivity and $\rho$ is the total volume charge density (charge per unit volume).
-Equation \eqref{eq:diff_equival} is equivalent to \eqref{eq:gauss_free}, when Gauss's law is formulated in terms of free charge, rather than total charge, that is considering the charge carriers in the dielectric only \citep{griffithsIntroduction2023}:
+where $\nabla \mathbf{E}$ is the divergence of the electric field,
+$\varepsilon_0$ is the vacuum permittivity and $\rho$ is the total volume charge
+density (charge per unit volume). Equation \eqref{eq:diff_equival} is equivalent
+to \eqref{eq:gauss_free}, when Gauss's law is formulated in terms of free
+charge, rather than total charge, that is considering the charge carriers in the
+dielectric only \citep{griffithsIntroduction2023}:
 %
 \begin{equation}
     \label{eq:gauss_free}
     \nabla \mathbf{D} = \rho_f ,
 \end{equation}
 %
-where $\mathbf{D}$ is the electric displacement and $\rho_f$ is the free charge density. In isotropic medium, where the properties are the same in all directions, the displacement field $\mathbf{D}$ and the electric field $\mathbf{E}$ are related by equation \eqref{eq:displ} \citep{griffithsIntroduction2023}: % pag. 181-182-187
+where $\mathbf{D}$ is the electric displacement and $\rho_f$ is the free charge
+density. In isotropic medium, where the properties are the same in all
+directions, the displacement field $\mathbf{D}$ and the electric field
+$\mathbf{E}$ are related by equation \eqref{eq:displ}
+\citep{griffithsIntroduction2023}: % pag. 181-182-187
 \begin{equation}
     \label{eq:displ}
     \mathbf{D} = \varepsilon \mathbf{E} ,
 \end{equation}
-where $\varepsilon = \varepsilon_0 \varepsilon_r$.
-Finally, Gauss’s law defines how the electric field is related to charge distribution, but it doesn't specify how $\mathbf{E}$ is spatially distributed. For that, $\mathbf{E}$ needs to be connected to the electric potential $V$. Since the electric field $\mathbf{E}$ is a vector whose curl is $\mathbf{0}$, it can be equated to the gradient of a scalar, making it easier to work with. Indeed, $\mathbf{E}$ can be derived as the gradient of the electric potential \citep{griffithsIntroduction2023}: % pag. 76
+where $\varepsilon = \varepsilon_0 \varepsilon_r$. Finally, it is important to
+note that Gauss’s law defines how the electric field is related to charge
+distribution, yet it doesn't specify how $\mathbf{E}$ is spatially distributed.
+For that, $\mathbf{E}$ needs to be connected to the electric potential $V$.
+Since the electric field $\mathbf{E}$ is a vector whose curl is $\mathbf{0}$, it
+can be equated to the gradient of a scalar, making it easier to work with.
+Indeed, $\mathbf{E}$ can be derived as the gradient of the electric potential
+\citep{griffithsIntroduction2023}: % pag. 76
 \begin{equation}
     \label{eq:pot}
     \mathbf{E} = -\nabla V.
 \end{equation}
 
-In practice, the above formulation of the problem allows to calculate the potential $V$ using boundary conditions and charge distribution. Then, \eqref{eq:pot} allows to determine field lines (or field distribution) and intensities once the charge distributions and material responses are established. Thus, this formulation allows the first part of the problem to be solved.
+In practice, the above formulation of the problem allows to calculate the
+potential $V$ using boundary conditions and charge distribution. Then,
+\eqref{eq:pot} allows to determine field lines (or field distribution) and
+intensities once the charge distributions and material responses are
+established. Thus, this formulation allows the first part of the problem to be
+solved.
 
 \begin{remark}
-From Gauss’s law in differential form, the local charge density $\rho$ can be extrapolated and expressed as \citep{griffithsIntroduction2023}: % pag. 81
+From Gauss’s law in differential form, the local charge density $\rho$ can be
+extrapolated and expressed as \citep{griffithsIntroduction2023}: % pag. 81
 
 \begin{equation}
 \rho = \nabla (-\varepsilon_0\varepsilon_r\nabla V).
 \end{equation}
 
-From Faraday's laws it is possible to correlate the charge density $\rho$ to the charge carrier concentration \citep{bardElectrochemical2022}. From the first law: % pag. 7
+From Faraday's laws it is possible to correlate the charge density $\rho$ to the
+charge carrier concentration \citep{bardElectrochemical2022}. From the first
+law: % pag. 7
 
 \begin{equation}
 m = \dfrac{Q}{zF}.
@@ -365,29 +447,95 @@ From the second law, it follows that:
 Q = n\cdot F.
 \end{equation}
 
-Dividing both sides by the volume unit, it results that charge density is directly proportional to charge carrier concentration $c$:
+Dividing both sides by the volume unit, it results that charge density is
+directly proportional to charge carrier concentration $c$:
 
 \begin{equation}
 \rho = c\cdot F,
 \end{equation}
 
-where $F$ is the Faraday constant. By assigning the charge carrier concentration $c$, it becomes possible to solve for both the electric field and the potential, completing the analysis.
+where $F$ is the Faraday constant. By assigning the charge carrier concentration
+$c$, it becomes possible to solve for both the electric field and the potential,
+completing the analysis.
 \end{remark}
 
 \subparagraph{Transport of Diluted Species module}
-The \emph{Transport of Diluted Species} module is dedicated to mass transfer studies, in particular to the investigation of the physical processes that regulate the transport of chemical species, them being electrons, holes, or ions, through phenomena like diffusion, convection or migration due to an electric field. In order to do so, this module calculates the concentration of species $c \left[mol/m^3\right]$ across the area or volume of the system by solving the Nernst-Planck equations presented in Section \ref{sec:simulations}. In Equation \eqref{eq:drift_el} and \eqref{eq:drift_ion}, the first term $-D_i \nabla c_i$ regulates transport by diffusion, according to Fick's law, that is driven by concentration gradients; the second term $-D_ifc_{\pm}\nabla V$ describes the drift contribution, that is, how the electric field influences charge migration and convection, which occurs when the species are carried by a flow field.
+The \emph{Transport of Diluted Species} module is dedicated to mass transfer
+studies, in particular to the investigation of the physical processes that
+regulate the transport of chemical species, them being electrons, holes, or
+ions, through phenomena like diffusion, convection or migration due to an
+electric field. In order to do so, this module calculates the concentration of
+species $c \left[mol/m^3\right]$ across the area or volume of the system by
+solving the Nernst-Planck equations presented in Section \ref{sec:model}; to
+reach this aim, it has to account for the fact that transport processes are
+governed by diffusion ($-D_i \nabla c_i$), according to Fick's law, which is
+driven by concentration gradients, and by drift ($-D_ifc_{\pm}\nabla V$), that
+is, how the electric field influences charge migration and convection, which
+occurs when the species are carried by a flow field. These terms will be
+described more in depth in Equation \eqref{eq:drift_el} and
+\eqref{eq:drift_ion}.
 
 \paragraph{Mesh}
-As explained in Section \ref{sec:FEM}, a characteristic of the finite element method is the meshing, that is the discretization of the domain of a system into smaller, finite elements. For each of these elements, a system of equations previously defined in the model will be solved. The mesh is a crucial part of the problem and great care should be used when creating one; it is indeed necessary to remember that the finer a mesh is, the more accurate the results will be, with the disadvantage of the operation being more computationally demanding, thus creating strain on the computer and requiring long solution times. The strategy that is commonly adopted is to set a very fine mesh along the boundaries, where high accuracy is required, whereas a coarser mesh is sufficient in the bulk of the domains; this evenly balances out the computational time required, without sacrificing accuracy at the boundaries. To reach the best combination of elements, the meshing process can be carried out both in a physics-controlled way, where the appropriate shape and size is automatically chosen by the sofware, or in an user-controlled way, where it can be manually set-up \citep{comsolCOMSOL_manual}.
+As introduced in Section \ref{sec:FEM}, a characteristic of the FEM is the
+meshing, that is the discretization of the domain of a system into smaller,
+finite elements. For each of these elements, a system of equations previously
+defined in the model will be solved. The mesh is a crucial part of the problem
+and great care should be used when creating one; it is indeed necessary to
+remember that the finer a mesh is, the more accurate the results will be, with
+the disadvantage of the operation being more computationally demanding, thus
+creating strain on the computer and requiring long solution times. The strategy
+that is commonly adopted is to set a very fine mesh along the boundaries, where
+high accuracy is required, whereas a coarser mesh is sufficient in the bulk of
+the domains; this evenly balances out the computational time and power required,
+without sacrificing accuracy at the boundaries. To reach the best combination of
+elements, the meshing process can be carried out both in a physics-controlled
+way, where the appropriate shape and size is automatically chosen by the
+sofware, or in an user-controlled way, where it can be manually set-up
+\citep{comsolCOMSOL_manual}.
 
 \paragraph{Study}
-Once the model and mesh are ready, the simulation can be launched (\emph{Study}), from which the results will be obtained. In this step, it is important to pay close attention to the settings, as they allow the choice type of study to carry out. The first key decision is whether to select a \emph{stationary} or \emph{time-dependent} study. In the first case, the simulation assumes that all conditions, such as temperature and concentration, remain constant, meaning the system is in a steady state. Mathematically, the stationary study solves equations under the assumption of time-invariance. In the second case, it is assumed that the variables change over time. These studies solve equations that include time derivatives, making them ideal for transient problems such as chemical reactions \citep{comsolCOMSOL_manual}. By setting initial conditions and observing how the system evolves over a defined time range, these studies are used to analyze processes that do not reach equilibrium instantly or exhibit time-dependent behaviour like diffusion.\\
+Once the model and mesh are ready, the simulation can be launched initiating a
+so-called \emph{Study}, from which the results will be obtained. In this step,
+it is important to pay close attention to the settings, as they allow the choice
+type of study to carry out. The first key decision is whether to select a
+\emph{stationary} or \emph{time-dependent} study. In the first case, the
+simulation assumes that all conditions, such as temperature and concentration,
+remain constant, meaning the system is in a steady state. Mathematically, the
+stationary study solves equations under the assumption of time-invariance. In
+the second case, it is assumed that the variables change over time. These
+studies solve equations that include time derivatives, making them ideal for
+transient problems such as chemical reactions \citep{comsolCOMSOL_manual}. By
+setting initial conditions and observing how the system evolves over a defined
+time range, these studies are used to analyze processes that do not reach
+equilibrium instantly or exhibit time-dependent behaviour like diffusion.\\
 %
-Within this interface, it is also possible to set up parametric sweeps, such as those for electronics studies, simulating transfer and output characteristics. \\
+Within this interface, it is also possible to set up parametric sweeps, such as
+those for electronics studies, simulating transfer and output characteristics.
+\\
 %
-Depending on the type of study, the most appropriate solver must be selected. Typically, COMSOL automatically selects a solver based on the aforementioned settings, yet keeping the possibility to change it manually. The options include the \emph{Automatic} solver, which detects whether a linear solver can be used, requiring no additional settings, the \emph{Linear} solver, keeps fixed Jacobians unless damping or iterations are specified, the \emph{Linear Perturbation} solver, which includes only specific weak contributions and ideal for small-signal analysis, and the \emph{Nonlinear} solver, which is designed specifically for nonlinear problems, automatically selecting suitable techniques \citep{comsolCOMSOL_manual}.
+Depending on the type of study, the most appropriate solver must be selected.
+Typically, COMSOL automatically selects a solver based on the aforementioned
+settings, yet keeping the possibility to change it manually. The options include
+the \emph{Automatic} solver, which detects whether a linear solver can be used,
+requiring no additional settings, the \emph{Linear} solver, keeps fixed
+Jacobians unless damping or iterations are specified, the \emph{Linear
+Perturbation} solver, which includes only specific weak contributions and ideal
+for small-signal analysis, and the \emph{Nonlinear} solver, which is designed
+specifically for nonlinear problems, automatically selecting suitable techniques
+\citep{comsolCOMSOL_manual}.
 %
-In addition to these settings, it is possible to select wheter to solve a problem with the \emph{fully coupled approach} or the \emph{segregated approach}. The former solves the entire system of equations simultaneously, accounting for all couplings in a single iteration. It requires more memory and computational power but it is often used for simpler 2D models. The latter approach breaks the problem into smaller steps, solving each step sequentially. This method reduces memory demands and is typically used for larger, more complex models like 3D simulations \citep{comsolCOMSOL_manual}.
+In addition to these settings, it is possible to select wheter to solve a
+problem with the \emph{fully coupled approach} or the \emph{segregated
+approach}. The former solves the entire system of equations simultaneously,
+accounting for all couplings in a single iteration. It requires more memory and
+computational power and it is often used for simpler 2D models. The latter
+approach breaks the problem into smaller steps, solving each step sequentially.
+This method reduces memory demands and is typically used for larger, more
+complex models like 3D simulations \citep{comsolCOMSOL_manual}.
 
 \paragraph{Results}
-The \emph{Results} branch in COMSOL Multiphysics provides tools to analyze and present simulation outcomes. It allows to create 1D, 2D and 3D plots and animations, conduct data analysis, and generate reports, offering a comprehensive way to interpret and share the simulation findings \citep{comsolCOMSOL_manual}.
+The \emph{Results} branch in COMSOL Multiphysics provides tools to analyze and
+present simulation outcomes. It allows to create 1D, 2D and 3D plots and
+animations, conduct data analysis, and generate reports, offering a
+comprehensive way to interpret and share the simulation findings
+\citep{comsolCOMSOL_manual}.
