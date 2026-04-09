@@ -4,7 +4,7 @@
 \begin{figure}[h]
     \centering
     \includegraphics[width = 0.8\textwidth]{figures/chapter2/litho/Fig8_litho.pdf}
-    \caption{Overview of the photolithographic fabrication steps for the EG-FET device. The process starts with photoresist deposition, then it shows UV exposure through a patterned mask to define the device geometry, and subsequent development to remove the unexposed regions. In the end, an optical microscope image of the patterned interdigitated electrodes of the fabricated device.}
+    \caption{Overview of the photolithographic fabrication steps for the EG-FET device. The process started with photoresist deposition, followed by UV exposure through a patterned mask to define device geometry; the subsequent development step was needed to remove the unexposed regions of photoresist. Finally, an optical microscope image of the patterned interdigitated electrodes of the fabricated device is shown.}
     \label{fig:litho}
 \end{figure}
 
@@ -19,24 +19,89 @@ Then, the substrate was dried in an oven for \SI{24}{\hour} at
 This procedure ensured that the surface was uncontaminated and ready for the
 following steps, shown in Figure \ref{fig:litho}.
 
-After cleaning, the substrate underwent a pre-baking step on a hotplate at \SI{115}{\celsius} for \SI{5}{\minute}, followed by \SI{5}{\minute} in a hexamethyldisilazane (HMDS) environment, whose vapour reacts with the surface, forming a hydrophobic layer and avoiding moisture formation; this step is supposed to favour photoresist adhesion to the substrate by preventing the interference of humidity \citep{pollentierBake2022}.
+After cleaning, the substrate underwent a pre-baking step on a hotplate at
+\SI{115}{\celsius} for \SI{5}{\minute}, followed by \SI{5}{\minute} in a
+hexamethyldisilazane (HMDS) environment, whose vapour reacts with the surface,
+forming a hydrophobic layer and avoiding moisture formation; this step is
+supposed to favour photoresist adhesion to the substrate by preventing the
+interference of humidity \citep{pollentierBake2022}.
 
-Photoresist was then deposited using a spin coater; the thickness and uniformity was controlled by appropriately adjusting the speed and time of rotation. Indeed, to reach optimal deposition, the spin coater was set to \SI{3000}{rpm}, with a spin acceleration of \SI{750}{rpm/s} and a total spin time of \SI{34}{\second}.
+Photoresist was then deposited using a spin coater; the thickness and uniformity
+was controlled by appropriately adjusting the speed and time of rotation.
+Indeed, to reach optimal deposition, the spin coater was set to \SI{3000}{rpm},
+with a spin acceleration of \SI{750}{rpm/s} and a total spin time of
+\SI{34}{\second}.
 
-After photoresist deposition, the substrate underwent post-baking on a hotplate at \SI{100}{\celsius}; this step was needed to stabilize the photoresist layer and to improve its chemical resistance for later steps, ultimately ensuring high resolution patterning during UV exposure and development \citep{miyajimaHighaspectratio1995}.
+After photoresist deposition, the substrate underwent post-baking on a hotplate
+at \SI{100}{\celsius}; this step was needed to stabilize the photoresist layer
+and to improve its chemical resistance for later steps, ultimately ensuring high
+resolution patterning during UV exposure and development
+\citep{miyajimaHighaspectratio1995}.
 
-The substrate with the photoresist was then aligned with a photomask containing the desired pattern. UV light was used to expose the photoresist through the mask, transferring the pattern onto it. The exposure dose was set to \SI{279.48}{\mJ/\cm\squared} to ensure proper resolution and pattern fidelity.
+The substrate with the photoresist was then aligned with a photomask containing
+the desired pattern. UV light was used to expose the photoresist through the
+mask, transferring the pattern onto it. The exposure dose was set to
+\SI{279.48}{\mJ/\cm\squared} to ensure proper resolution and pattern fidelity.
 
-After exposure, the substrate underwent development to remove the unexposed areas of the photoresist. MA-D533/S developer, an aqueous-alkaline surfactant containing tetramethylammonium hydroxide (TMAH), was chosen for its compatibility with the ma-N 1420 photoresist. The PI substrate was left in the developer bath for \SI{2.5}{\minute}, then thoroughly rinsed with abundant \ce{diH2O}, ensuring removal of all unexposed material, thus achieving optimal resolution and edge definition of the developed pattern.
+After exposure, the substrate underwent development to remove the unexposed
+areas of the photoresist. MA-D533/S developer, an aqueous-alkaline surfactant
+containing tetramethylammonium hydroxide (TMAH), was chosen for its
+compatibility with the ma-N 1420 photoresist. The PI substrate was left in the
+developer bath for \SI{2.5}{\minute}, then thoroughly rinsed with abundant
+\ce{diH2O}, ensuring to remove all unexposed material, thus achieving optimal
+resolution and edge definition of the developed pattern.
 
 \subsection{Electrode deposition}
 \label{sec:eavporation}
 
-After photolithography, multiple techniques can be used to deposit the electrodes, including physical vapour deposition (PVD) techniques. This term refers to those methods where the target material (\eg{} a metal) is processed in such a way that it changes phase, namely from solid to vapour, and then to solid again (no reactions occur during the phase changes). Two common PVD techniques are sputtering, where high-energy ions bombard the target causing the atoms to detach, evaporate and reattach on the substrate, and evaporation, where the target is heated enough to have the metal evaporate, deposit on the substrate and solidify again, mostly in the form of thin film. In the case of this project, the choice fell on evaporation for practical reasons: the evaporator was simply already setup for the process, offering the possibility to evaporate both the titanium adhesion layer and the actual gold electrode. This process also allowed to tightly control the thickness of the electrodes and produced very uniform metal surfaces. As a PVD technique, it is important to notice that evaporation occurs in vacuum conditions (\SI{<2e-6}{\mbar}): this helps in removing vapours other than the metal and prevents impurities from contaminating the surface. First, an adhesion layer of \SI{10}{\nm} of titanium was deposited. Since titanium has a high-melting point (\SI{1668}{\celsius}), an electron beam (e-beam) was necessary to sufficiently heat up the metal: in this process, a metal filament is electrically charged (a current of approximately \SI{100}{\mA} was applied) to the point where it releases electrons; these same electrons are emitted with very high energy and on a very focused spot that gets heated up until it starts to evaporate. These vaporized atoms then land on a cold surface, \ie{} the substrate, where they condense again, forming the thin layer needed for gold to adhere to the substrate. Indeed, without this, gold would be more prone to delamination or chipping, at the risk of making our efforts invain. Next, a \SI{50}{\nm} gold layer was deposited using thermal evaporation. This method relies on resistive heating to reach the melting point of a gold pellet (\SI{1064.18}{\celsius}), which then evaporates and travels in the chamber until it condenses on the PI surface, which is now covered in titanium. For both processes, it was imperative to maintain the evaporation rate as stable as possible, in order to deposit a uniform layer with minimal defects. This would then favour stability in the fabricated devices; the best results were obtained when evaporating at a rate between \SIrange{0.2}{0.5}{\angstrom\per\second}. To also contribute to the uniformity of the deposited layers, the substrate was placed on a rotating support, which promoted an even distribution of the evaporated material. After metal deposition, the lift off process took place by immersing the substrate (now fully covered in metals, without any pattern visible) in acetone for \SI{60}{\min}; indeed, ma-N 1420 is sensitive to acetone, which can be used to remove the excess. After the acetone bath, the substrates were placed in an ultrasound sonicator for few seconds, then rinsed with a bottle. This process was repeated 3 times with acetone and once with IPA to ensure that all remaining photoresist was removed, and the overlaying metals with it. The devices were then dried with an air gun and checked for any fabrication defects, \eg{} gold speckles in the channel that could later cause short circuits.
+After photolithography, multiple techniques can be used to deposit the
+electrodes, including physical vapour deposition (PVD) techniques. This term
+refers to those methods where the target material (\eg{} a metal) is processed
+in such a way that it changes phase, namely from solid to vapour, and then to
+solid again (no reactions occur during the phase changes). Two common PVD
+techniques are sputtering, where high-energy ions bombard the target causing the
+atoms to detach, evaporate and reattach on the substrate, and evaporation, where
+the target is heated enough to have the metal evaporate, deposit on the
+substrate and solidify again, mostly in the form of thin film. In the case of
+this project, the choice fell on evaporation mainly for practical reasons, as
+the evaporator was already setup for the process, offering the possibility to
+evaporate both the titanium adhesion layer (to prevent delamination) and the
+actual gold electrode. This process also allowed to tightly control the
+thickness of the electrodes and produced very uniform metal surfaces. It is
+important to notice that evaporation occurs in vacuum conditions
+(\SI{<2e-6}{\mbar}): this helps in removing vapours other than the metal and
+prevents impurities from contaminating the surface. First, an adhesion layer of
+\SI{10}{\nm} of titanium was deposited. Since titanium has a high-melting point
+(\SI{1668}{\celsius}), an electron beam (e-beam) was necessary to sufficiently
+heat up the metal: in this process, a metal filament is electrically charged (a
+current of approximately \SI{100}{\mA} was applied) to the point where it
+releases electrons; these high-energy electrons are then emitted on a very
+focused spot that gets heated up until it starts to evaporate. The vaporized
+atoms then land on a cold surface, \ie{} the substrate, where they condense
+again, forming a thin metal layer. Next, a \SI{50}{\nm} gold layer was deposited
+using thermal evaporation. This method relies on resistive heating to reach the
+melting point of gold (\SI{1064.18}{\celsius}), which then evaporates and
+travels in the chamber until it condenses on the PI surface, above the titanium
+layer. For both processes, it was imperative to maintain the evaporation rate as
+stable as possible, in order to deposit a uniform layer with minimal defects.
+This would then favour stability in the fabricated devices; the best results
+were obtained when evaporating at a rate between
+\SIrange{0.2}{0.5}{\angstrom\per\second}. To also contribute to the uniformity
+of the deposited layers, the substrate was placed on a rotating support, which
+promoted an even distribution of the evaporated material. After metal
+deposition, the lift off process took place by immersing the substrate in
+acetone for \SI{60}{\min}, to which ma-N 1420 is sensitive. After the acetone
+bath, the substrates were placed in an ultrasound sonicator for few seconds,
+then rinsed with a bottle. This process was repeated 3 times with acetone and
+once with IPA to ensure that all remaining photoresist was removed, and the
+overlaying metals with it. The devices were then dried with an air gun and
+checked for any fabrication defects, \eg{} gold speckles in the channel that
+could later cause short circuits. A summary of the electrode deposition process
+is presented in Figure \ref{fig:evap}.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{figures/chapter2/litho/Fig9_evap.pdf}
-    \caption{}
+    \caption{Overview of the electrode fabrication steps by metal deposition via evaporation. First a titanium \SI{10}{\nm} layer was evaporated through electron beam, followed by a \SI{50}{\nm} layer of gold. The residual photoresist used for patterining was removed during the lift-off process, by placing the substrate in an acetone bath. Finally, an optical microscope image shows the interdigitated electrodes of one of the fabricated devices.}
     \label{fig:evap}
 \end{figure}
