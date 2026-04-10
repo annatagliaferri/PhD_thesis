@@ -13,7 +13,7 @@
 \section{Standard EG-FET}
 \label{sec:big_channel}
 
-%\input{./chapters/chapter3/bigChannel}
+\input{./chapters/chapter3/bigChannel}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -27,25 +27,41 @@
 \section{Reduced channel area}
 \label{sec:small_channel}
 
-%\input{./chapters/chapter3/smallChannel}
+\input{./chapters/chapter3/smallChannel}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Conclusion}
 \label{sec:stability_conclusion}
 
-\begin{color}{red}
+In conclusion, this chapter explored the properties of three EG-CNTFET geometries to understand their stabilization mechanisms. 
 
-Membrane changes EDL capacitance and ionic accessibility → explains current reduction and opposite Vth/on–off trends.
+It has been observed that for the standard platform with exposed carbon
+nanotubes, the current diminishes rapidly; however, it also has the best \vth{}
+and \ratio{} values. If a lipophilic membrane is added on the channel to protect
+the CNT network, stabilization improves significantly, as it is achieved in just
+30 minutes, and is maintained for up to 12 hours of testing. On the other hand,
+there are no positive effects when the semiconductor channel is moved closer to
+the gate, and performance actually deteriorates when the device size is reduced.
+A more thorough analysis of the results obtained indicates that gating is
+primarily governed by capacitive EDL effects, with small gate currents
+indicating proper EDL formation even in membrane-encapsulated devices.
+Hysteresis can most probably be attributed to charge trapping and detrapping
+phenomena, when mobile ions and charges move under bias before finding a
+steady-state. The presence of a lipophilic membrane significantly alters device
+characteristics by modifying ionic coupling and doping levels, resulting in
+\vth{} shifts and reduced \ratio{}. Specifically, a lower ionic coupling reduces
+EDL capacitance, leading to lower transconductance and thus lower drain current.
+Additionally, the membrane increases drain-source resistance, therefore lowering
+\ion{}, which in turn lowers the \ratio{}. However, the membrane provides better
+stability by preventing CNT doping by oxygen and water; this also slows down ion
+permeation (stabilization phase), which eventually occurs, leading to a more
+stable device. Finally, scaling effects were tested, by studying the behaviour
+of the smaller devices: these exhibited inferior performance due to the lower
+conductivity of the channel and to the higher impact of small defects on overall
+device behavior.
 
-Slow ion migration / membrane charge relaxation causes hysteresis that decays with repeated sweeps (~60 min).
 
-Fabrication non-uniformity in the small devices (spray + mask) causes increased variability and prevents consistent stabilization; local defects change effective C\_EDL and contact/percolation.
-
-Contact resistance and percolation density differences in the scaled devices increase sensitivity to the above effects.
-
-Minor Faradaic surface chemistry may still occur at very small levels and alter doping slowly, but is not dominant (gate leakage small).
-\end{color}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
