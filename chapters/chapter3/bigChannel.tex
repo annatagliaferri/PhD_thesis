@@ -7,16 +7,70 @@
     \label{fig:standardEGFET}
 \end{figure}
 
-The standard EG-CNTFET geometry in Figure \ref{fig:standardEGFET} was based on the studies of \citet{joshiUnderstanding2018}, who evaluated different ratios between the gate area and the channel area; it was found that best performance was achieved by the configuration where the gate area was four times larger than the channel area. The IDEs are \SI{3}{\mm} long and \SI{100}{\um} high, with a channel width that amounts to \SI{57}{\mm}; this configuration results in a large $\frac{W}{L}$ ratio, which is linked to a high transconductance through Equation \eqref{eq:transconductance}. A big transconductance leads to an increased sensitivity of the device to small variations in gate potential, thus making it more responsive to changes in the applied voltage. Finally, a planar \SI{5.7}{\mm} $\times$ \SI{5.7}{\mm} gate electrode was employed.
+The standard EG-CNTFET geometry in Figure \ref{fig:standardEGFET} was based on
+the studies of \citet{joshiUnderstanding2018}, who evaluated different ratios
+between the gate area and the channel area; it was found that best performance
+was achieved by the configuration where the gate area was four times larger than
+the channel area (a planar \SI{5.7}{\mm} $\times$ \SI{5.7}{\mm} gate electrode
+was employed.). The IDEs are \SI{3}{\mm} long and \SI{100}{\um} high, with a
+channel width that amounts to \SI{57}{\mm}; this configuration resulted in a
+large $\frac{W}{L}$ ratio, which is proportional to transconductance through
+Equation \eqref{eq:transconductance}. Indeed, transconductance quantifies how
+strongly the gate controls channel conduction, which can be expressed as:
 
-The deposition of SWCNTs onto the devices was carried out following the protocol previously optimized by \citet{shkodraOptimization2023}, as described in Section \ref{sec:cntDeposition}. Following this protocol, 60 layers of SWCNTs were deposited, leading to a post-deposition \rds{} between \SIrange{1}{10}{\kohm}; in fact, it was observed by \citet{petrelliMethod2023} that this range is where the performance of this type of device is optimal. In addition, this step provided an initial skimming of the manufactured devices, in order to reduce device-to-device variability that could be detrimental to subsequent steps.
+\begin{equation}
+    g_m = \dfrac{\partial I_{DS}}{\partial V_{GS}},
+\end{equation}
 
-The devices that passed this screening were subjected to electrical characterization, by collecting transfer characteristics, according to the protocol given in Section \ref{sec:characterization}.
+that is:
 
-The first step was to determine the behavior of the as-manufactured devices, with the bare channel. This would provide a baseline against which modified devices could be compared in the hope of achieving better performance. To this end, the raw transfer curves were observed, without any processing (Figure \ref{fig:transferNoMem}), after which the variation of the ON current (\ion{}) was evaluated as a function of time (Figure \ref{fig:NormNoMem}). Normalization was performed by taking the \ion{} value at \vgs{}=\SI{-0.8}{\V} for each cycle and dividing it by the \ion{} of the first recorded transfer curve during that measurement sequence. This approach is useful to standardize the current variations across different devices, allowing a fair comparison of their performance. While the measured current was always considered, normalization helped in further mitigating the influence of device-to-device variation, thus facilitating the comparison among different devices, without interference from fabrication inconsistencies.
-The observation of transfer characteristics shows that the \ids{} decreases progressively after each measurement cycle, although this trend is more clearly seen in the normalized \ion{} over time. This decrease indicates that there is a level of degradation of CNTs and that something occurs during their use that alters their functionality. This effect is not particularly relevant during the 60-minute measurement, though it can become a problem for longer measurements, as in the case of EG-CNTFET used as a transducer for a sensor. Calibration measurements, in fact, can take several hours; during this time there is a risk that the measured current will continuously decrease until it reaches \SI{0}{\uA}, making the measurements unreliable.
+\begin{equation}
+    \Delta I_{DS} \approx g_m \cdot \Delta V_{GS}.
+\end{equation}
 
-\begin{figure}
+This implicates that a high transconductance leads to an increased sensitivity of the device to small variations in gate potential, thus making it more responsive to changes in the applied voltage.
+
+The deposition of SWCNTs onto the devices was carried out following the protocol
+previously optimized by \citet{shkodraOptimization2023}, as described in Section
+\ref{sec:cntDeposition}. Following this protocol, 60 layers of SWCNTs were
+deposited, leading to a post-deposition \rds{} between \SIrange{1}{10}{\kohm};
+in fact, it was observed by \citet{petrelliMethod2023} that in this range the
+performance of this device is optimal. By only selecting platforms within this
+range, an initial filtering of the manufactured devices was carried out, thus
+limiting device-to-device variability, which could potentially skew subsequent
+outcomes.
+
+The devices that passed this screening were subjected to electrical
+characterization, by collecting transfer characteristics, according to the
+protocol given in Section \ref{sec:characterization}.
+
+The first step was to determine the behaviour of the as-manufactured devices,
+with the bare channel. This would provide a baseline against which modified
+devices could be compared in the hope of achieving better performance. To this
+end, the raw transfer curves were observed, without any processing (Figure
+\ref{fig:transferNoMem}), after which the variation of the normalized ON current
+(\ion{}) was evaluated as a function of time (Figure \ref{fig:NormNoMem}).
+Normalization was performed by dividing the \ion{}, \ie{} the current value at
+\vgs{}=\SI{-0.8}{\V} for each cycle, by the \ion{} of the first recorded
+transfer curve during that measurement sequence. This approach proved useful to
+standardize the current variations across different devices, allowing a fair
+comparison of their performance; indeed, while the measured current was always
+considered, the normalized data helped in mitigating the influence of
+device-to-device variation, especially that ascribed to fabrication
+inconsistencies. The observation of transfer characteristics shows that the
+\ids{} decreases progressively after each measurement cycle, as indicated by the
+arrow in Figure \ref{fig:transferNoMem}, although this trend is more clearly
+seen in the normalized \ion{} over time. This decrease implicates that a process
+must take place, that alters CNT functionality, most probably encompassing a
+certain level of degradation. This effect is not particularly relevant during
+the 60-minute measurement, as the \ids{} remains high enough to be detected with
+a high signal-to-noise ratio, though it can become a problem for longer
+measurements, as in the case of EG-CNTFET used as a transducer for a sensor.
+Calibration measurements, in fact, can take several hours; during this time
+there is a risk that the measured current will continuously decrease until it
+reaches \SI{0}{\uA}, making the measurements unreliable.
+
+\begin{figure}[ht]
     \centering
     \subfloat[Transfer characteristics]{%
         \includegraphics[width=0.45\textwidth]{figures/chapter3/EGFET/transferNoMem.pdf}%
@@ -50,27 +104,75 @@ The observation of transfer characteristics shows that the \ids{} decreases prog
     \label{fig:parameters_noMem}
 \end{figure}
 
-Figure \ref{fig:IdIgNoMem} shows \ids{} and \igs{} on the same plot: \igs{} is orders of magnitude lower than \ids{}, indicating minimal gate leakage, which is crucial for efficient transistor functioning. Indeed, gate leakage is a phenomenon that occurs when a current flows between the gate and the channel, exiting the designated source-drain path, leading to increased power dissipation, and reduced device efficiency and stability.
+Figure \ref{fig:IdIgNoMem} shows \ids{} and \igs{} on the same plot: \igs{} is
+orders of magnitude lower than \ids{}, indicating minimal gate leakage, which is
+crucial for efficient transistor functioning. Indeed, when the current exits the
+source-drain path and flows between the channel and the gate, it causes high
+power dissipation and thus reduces device efficiency.
 
-Another parameter to consider in device performance is hysteresis, which is defined as \vv{the difference of the voltages that should be applied to the gate in forward and backwards sweeps to get the drain current equal to the average of maximum and minimum drain current, \ie{} ($\frac{I_{\text{D,max}} + I_{\text{D,min}}}{2}$)} \citep{joshiUnderstanding2018}. Several factors contribute to hysteresis, including adsorbed water and oxygen molecules on the CNT surface, and surface traps that capture induced charges \citep{joshiUnderstanding2018,zaumseilSemiconducting2019}. Hysteresis is an important parameter to evaluate, as it can significantly impact device performance: indeed it can affect mobility, threshold voltage, on/off ratio, and sub-threshold slope, potentially causing signal drift and negatively impacting reliability \citep{joshiUnderstanding2018,noyceElectronic2019}.
+Another parameter to consider in device performance is hysteresis, defined as \vv{the difference of the voltages that should be applied to the gate in forward and backwards sweeps to get the drain current equal to the average of maximum and minimum drain current, \ie{} ($\frac{I_{\text{D,max}} + I_{\text{D,min}}}{2}$)} \citep{joshiUnderstanding2018}. 
+%Several factors contribute to hysteresis, including adsorbed water and oxygen molecules on the CNT surface, and surface traps that capture induced charges \citep{joshiUnderstanding2018,zaumseilSemiconducting2019}. 
+Several factors contribute to hysteresis in these devices. Ion migration
+represents a major contribution, where small cations move faster resulting in
+smaller hysteresis, while large cations are slower leading to larger hysteresis.
+The sweep rate also influences hysteresis by affecting both the extent of ion
+migration and charge trapping \citep{panzerLowvoltage2005}. Interface defects
+further increase hysteresis by trapping and de-trapping charges
+\citep{kimEffects2023}. Additionally, the electrolyte affects ion mobility by
+influencing capacitance, the speed of EDL formation, and mobility. Indeed,
+higher mobilities induce faster EDL formation, thus reducing hysteresis
+\citep{joshiUnderstanding2018,zaumseilSemiconducting2019}. Moreover, water and
+oxygen molecules that adsorb on the CNT surface, play a role in increasing
+hysteresis as well \citep{kimHysteresis2003}.
 
-As shown in Figure \ref{fig:hysNoMem}, hysteresis in the devices herein presented significantly decreases over time, indicating that device performance improves over time. However, it is important to observe that this reduction in hysteresis is concomitant with a decrease in \ids{} that cannot be overlooked.
+Hysteresis is an important parameter to evaluate, as it can significantly impact
+device performance: indeed it can affect mobility, threshold voltage, on/off
+ratio, and sub-threshold slope, potentially causing signal drift and negatively
+impacting reliability \citep{joshiUnderstanding2018,noyceElectronic2019}.
 
-\begin{figure}[ht]
+As shown in Figure \ref{fig:hysNoMem}, hysteresis in the devices herein
+presented significantly decreases over time, indicating that device performance
+improves over time. However, it is important to observe that this reduction in
+hysteresis is accompanied by a decrease in \ids{} that cannot be overlooked.
+
+After the transfer curves, output characteristics were plotted and evaluated (Figure \ref{fig:outputNoMem}), describing the relationship between \ids{} and \vds{} at different \vgs{}. By collecting output characteristics, it is possible to further assess device performance by extrapolating other parameters; for instance, observing these curves allowes to evaluate whether a device operates in linear or saturation regime. Indeed, from the curves displayed in Figure \ref{fig:outputNoMem}, it is possible to determine that the devices approach saturation but do not fully reach it. In fact, in a well-saturated regime, \ids{} would become fairly constant with increasing \vds{}; the incomplete saturation seen in these devices suggests that there may be residual channel conduction even at high \vds{}, due to factors such as inefficient carrier pinch-off, contact resistance, or electrostatic limitations of the electrolyte gating mechanism.
+
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.45\textwidth]{figures/chapter3/EGFET/outputNoMem.pdf}
     \caption{Electrical characterization of a standard EG-CNTFET device. Output characteristics: the device operates in the linear regime for all \vds{}, although it approaches saturation at \SI{-0.6}{\V} and \SI{-0.8}{\V}. This is supported by the approximately linear trend, which precisely suggests operation in the ohmic region, indicating low contact resistance and efficient charge injection. The well-defined current modulation across different \vgs{} values demonstrates effective gate control, which is essential for stable transistor operation and reliable switching behavior.}
     \label{fig:outputNoMem}
 \end{figure}
 
-After the transfer curves, output characteristics were plotted and evaluated (Figure \ref{fig:outputNoMem}): output characteristics describe the relationship between \ids{} and \vds{} for different \vgs{}. By collecting output characteristics, it is possible to further assess device performance by extrapolating other parameters; in particular, observing these curves allowes to evaluate whether a device operates in linear or saturation regime. Indeed, from the curves displayed in Figure \ref{fig:outputNoMem}, it is possible to gather that the devices approach saturation but do not fully reach it. In fact, in a well-saturated regime, \ids{} would become relatively constant with increasing \vds{}; the incomplete saturation seen in these devices suggests that there may be residual channel conduction even at high \vds{}, due to factors such as inefficient carrier pinch-off, contact resistance, or electrostatic limitations of the electrolyte gating mechanism.
-
 \subsection{Membrane encapsulation}
 \label{sec:membrane_encapsulation}
 
-With a baseline established, it is evident that the devices are not stable over time, as demonstrated by the decreasing current over time. The objective of this project was to develop an inexpensive approach to improve device stability while also achieving faster stabilization. To tackle this issue, a lipophilic membrane was deposited on the CNTs of the channel to protect them from environmental exposure. Indeed, CNTs degrade upon contact with the oxygen in the air and with the water molecules of the electrolyte, causing an alteration in device performance. Great care must be therefore given to these devices, to the point that they must be stored in a protected environment, \ie{} a nitrogen-filled glovebox, to prevent damages to the nanotubes in the time prior to the measurements. Additionally, during the measurements, CNTs are exposed to the ions contained in the electrolyte, which could react with the functional groups on the nanotubes and thus further contribute to the worsening performance.
+In the previous paragraph, a baseline was established to compare new devices;
+from the results previously obtained, it is evident that the devices are not
+stable over time, as demonstrated by the decreasing current over time. The
+objective of this project was to develop an inexpensive approach to improve
+device stability while also achieving faster stabilization. To tackle this
+issue, a lipophilic membrane was deposited on the CNTs of the channel to protect
+them from environmental exposure. Indeed, CNTs degrade upon contact with the
+oxygen in the air and with the water molecules of the electrolyte, having a
+negative impact on device performance. Great care must be therefore given to
+these devices, to the point that they must be stored in a protected environment,
+\ie{} a nitrogen-filled glovebox, to prevent damages to the nanotubes in the
+time prior to the measurements. Additionally, during the measurements, CNTs are
+exposed to the ions contained in the electrolyte, which could react with the
+functional groups on the nanotubes and thus further contribute to the worsening
+performance.
 
-The first step in this approach was optimizing the membrane deposition process itself, \ie{} the volume to be dropcast and the resulting membrane thickness. Initially, \SI{10}{\ul} of the membrane were dropcasted onto the CNT channel in a one-step deposition. This proved insufficient in providing consistent protection: 50\% of devices reached higher stability (Figure \ref{fig:norm10bad}), while the other half still exhibited worsening behaviour during measurements (Figure \ref{fig:norm10bad}), indicating that the CNTs were still suffering the consequences of air and electrolyte exposure ($N = 12$). Given this variability, an alternative deposition strategy needed to be developed to ensure a more reliable coverage.
+The first step in this approach was optimizing the membrane deposition process
+itself, \ie{} the volume to be dropcasted and the resulting membrane thickness.
+Initially, \SI{10}{\ul} of the membrane were dropcasted onto the CNT channel in
+a one-step deposition. This proved insufficient in providing consistent
+protection: 50\% of the devices ($N = 6$) exhibited worsening behaviour over
+time, in similar fashion to the bare devices (Figure \ref{fig:norm10bad}),
+indicating that the CNTs were still suffering the consequences of air and
+electrolyte exposure; on the other hand, 50\% of the EG-FETs ($N = 6$) reached
+higher stability (Figure \ref{fig:norm10good}), hinting at succesful coverage,
+thus pointing towards promising results.
 
 \begin{figure}
     \centering
@@ -87,8 +189,20 @@ The first step in this approach was optimizing the membrane deposition process i
     \label{fig:membrane10ul}
 \end{figure}
 
-It was found that a two-step dropcasting process, \ie{} first depositing \SI{8}{\ul} and following with an additional \SI{7}{\ul}, resulted in effective CNT coverage while still allowing current to flow.
-First, the change in \rds{} before and after membrane deposition was tested, as demonstrated by Figure \ref{fig:rdsChange}. The expected result was an increase, due to the lower ion content of the membrane and to the addition of scattering centers in the channel \citep{joshiUnderstanding2018}. The measurements confirmed the expectations, showing a value of \SI{2.25}{} $\pm$ \SI{0.94}{\kohm} on the bare channel (before membrane deposition), while the \rds{} increased to \SI{24.48}{} $\pm$ \SI{8.45}{\kohm} with the membrane protecting the SWCNT network. The result is also consistent with the findings of \citet{petrelliMethod2023}, who observed an approximately 15-fold increase in resistance after the deposition of an ion-selective membrane on the channel, also accompanied by an increase in variability.
+It was found that a two-step dropcasting process, \ie{} first depositing
+\SI{8}{\ul} of membrane solution and following with an additional \SI{7}{\ul},
+yielded effective CNT coverage while still allowing current to flow. First, the
+change in \rds{} before and after membrane deposition was tested, with the
+results shown in Figure \ref{fig:rdsChange}. The \rds{} was expected to
+increase, due to the lower ion content of the membrane and to the addition of
+scattering centers in the channel \citep{joshiUnderstanding2018}. The
+measurements confirmed the expectations, as the \rds{} amounts to a value of
+\SI{2.25}{} $\pm$ \SI{0.94}{\kohm} on the bare channel (before membrane
+deposition), while it increased to \SI{24.48}{} $\pm$ \SI{8.45}{\kohm} with the
+membrane protecting the SWCNT network. The result is also consistent with the
+findings of \citet{petrelliMethod2023}, who observed an approximately 15-fold
+increase in resistance after the deposition of an ion-selective membrane on the
+channel, also accompanied by an increase in variability.
 
 \begin{figure}
     \centering
@@ -96,6 +210,33 @@ First, the change in \rds{} before and after membrane deposition was tested, as 
     \caption{Variation in resistance between source and drain (\rds{}) before and after the deposition of the lipophilic membrane. Before membrane deposition, the devices exhibit a resistance of \SI{2.25}{} $\pm$ \SI{0.94}{\kohm}, with little variability among them; this is thanks to the previous screening that was carried out for the purpose of having the best performing platforms, while also reducing device-to-device variation. After membrane deposition, the resistance increases, together with the standard deviation, indicating greater variability among the devices.}
     \label{fig:rdsChange}
 \end{figure}
+
+The transfer curves of the devices with an encapsulated channel, shown in Figure
+\ref{fig:transferMem}, exhibit a different trend compared to the bare
+counterparts (Figure \ref{fig:transferNoMem}). The first transfer curve,
+collected five minutes after first applying a \vds{} and a \vgs{}, shows the
+highest current, however, it is possible to observe that the other curves are
+plotted at lower values, then progrssively increasing again over time. This
+current evolution is again better visualized through the normalized \ids{}, as
+seen in Figure \ref{fig:normMem}. Two distinct phases in the device behavior can
+be distinguished: the initial phase can be referred to as the
+\emph{stabilization phase}, lasting approximately the first \SI{30}{\min}.
+During this period, the EDLs are still forming, ions are moving and potentially
+being trapped in the membrane, and the system is moving toward an equilibrium.
+This is hypothesized from the fact that, after the first point, the current
+decreases by more than half and exhibits significant variability, without
+following a specific trend. Following the stabilization phase, the system enters
+the so-called \emph{constant slope phase}, where the \ion{} displays a linear
+trend over time; for the scope of this analysis, the trend was considered linear
+for $R^2>0.98$. On average, the devices achieved this linearity in \SI{33.8}{}
+$\pm$ \SI{12.9}{\min}, effectively halving the stabilization time compared to
+state-of-the-art devices \citep{molazemhosseiniRapidly2021}. The linearity is
+particularly relevant for EG-CNTFETs employed as transducers in sensor
+applications: indeed, a linear baseline calculated over the stabilization phase
+can be subtracted from the current measured during analyte detection, thus
+ensuring reliable assays. In summary, a linear constant slope phase is crucial
+for platform calibration, ultimately allowing precise quantification of analytes
+in samples.
 
 \begin{figure}
     \centering
@@ -115,11 +256,14 @@ First, the change in \rds{} before and after membrane deposition was tested, as 
     \label{fig:Mem}
 \end{figure}
 
-The transfer curves of the devices with an encapsulated channel, shown in Figure \ref{fig:transferMem}, exhibit a different trend compared to the unencapsulated counterparts (Figure \ref{fig:transferNoMem}). The first transfer curve, collected five minutes after the start, shows the highest current, however, it is possible to observe that the other curves are plotted at lower values, then progrssively increasing again over time. This current evolution is again better visualized through the normalized \ids{}, as seen in Figure \ref{fig:normMem}. Two distinct phases in the device behavior can be distinguished: the initial phase can be referred to as the \emph{stabilization phase}, lasting approximately the first \SI{30}{\min}. During this period, the electrical double layers (EDLs) are still forming, ions are moving and potentially being trapped in the membrane, and the system is moving toward an equilibrium. This is hypothesized from the fact that, after the first point, the current decreases by more than half and exhibits significant variability, without following a specific trend. Following the stabilization phase, the system enters the so-called \emph{constant slope phase}, where the \ion{} displays a linear trend over time; for the scope of this analysis, the trend was considered linear for $R^2>0.98$. On average, the devices achieved this linearity in \SI{33.8}{} $\pm$ \SI{12.9}{\min}, effectively halving the stabilization time compared to state-of-the-art devices \citep{molazemhosseiniRapidly2021}. This stabilization is particularly relevant for EG-CNTFETs employed as transducers in sensor applications: indeed, a linear baseline can be subtracted from the measured current during analyte detection, improving measurement reliability. This leads to accurate platform calibration, ultimately allowing precise quantification of analytes in samples.
+It is important to notice that, the current is now an order of magnitude lower
+than that of the bare devices. However, this reduction is not a major concern,
+as the signal remains properly measurable. This trade-off must still be
+considered when assessing device performance, as a lower yet stable current may
+be preferable to a higher current that decreases rapidly due to semiconductor
+degradation, ultimately leading to the loss of signal.
 
-It is important to notice that, the current is now an order of magnitude lower than that of the bare devices. However, this reduction is not a major concern, as the signal remains measurable. This trade-off must be therefore considered when assessing device performance, as a lower yet stable current is preferable to a higher current that decreases rapidly due to semiconductor degradation, ultimately leading to the loss of signal.
-
-\begin{figure}
+\begin{figure}[hb]
     \centering
     \subfloat[\igs{} and \ids{}]{%
         \includegraphics[width=0.45\textwidth]{figures/chapter3/EGFET/IdIgMem.pdf}%
@@ -136,9 +280,29 @@ It is important to notice that, the current is now an order of magnitude lower t
     \label{fig:parameters_Mem}
 \end{figure}
 
-Figure~\ref{fig:parameters_Mem} shows a couple important electrical parameters of the device, \ie{} the \igs{} with respect to the \ids{} (Figure \ref{fig:IdIgMem}) and the hysteresis (Figure \ref{fig:hysMem}). In the first plot, the gate current is two orders of magnitude lower than the drain current; this is the expected outcome, with minimal gate leakage current. The small deviation observed in \igs{} indicates the presence of minor leakage pathways, but their negligible magnitude confirms that the device maintains effective electrostatic control. The right panel illustrates how hysteresis changes from the first (red) to the last (blue) transfer curves collected. Initially, the red curve exhibits a large hysteresis, with the drain current reaching approximately \SI{-10}{\uA}; by the end of the measurement, the current is significantly lower (\SI{-2.5}{\uA}) and the hysteresis now amounts to \SI{0}{\V}. This improvement is the desired outcome, which indicates that the device finds a level of stabilization, likely due to the filling of trap states or improved charge screening effects.
+As previously indicated, the \ids{} is not the only important parameter to
+observe: Figure~\ref{fig:parameters_Mem} shows a couple important electrical
+parameters of the device, \ie{} the \igs{} with respect to the \ids{} (Figure
+\ref{fig:IdIgMem}) and the hysteresis (Figure \ref{fig:hysMem}). In the first
+plot, the gate current is two orders of magnitude lower than the drain current;
+this is the expected outcome, with minimal gate leakage current. The small
+deviation observed in \igs{} at \vgs{}=\SI{-0.8}{\V} indicates the presence of
+minor leakage pathways, but their small magnitude confirms that the device
+maintains effective electrostatic control. The right panel illustrates how
+hysteresis changes from the first (red) to the last (blue) transfer curves
+collected. Initially, the red curve exhibits a large hysteresis, with the drain
+current reaching approximately \SI{-10}{\uA}; by the end of the measurement, the
+current is significantly lower (\SI{-2.5}{\uA}) and the hysteresis now amounts
+to \SI{0}{\V}. 
 
-Compared to previous results, the latter device shows an overall reduction in conduction (the current is 10 times lower), and yet an improvement in stability.
+By comparing the devices without (Figure \ref{fig:hysNoMem}) and with the
+membrane (Figure \ref{fig:hysMem}), a similar behaviour is observed, \ie{}
+hysteresis is large in the first measurement, while it decreases to \SI{0}{\V}
+in the last measurements. Considering the various possible causes of hysteresis,
+the most plausible explanation for this behaviour is that the trapping and
+detrapping phenomena decrease over time; indeed, the trap states are initially
+free, capturing the moving charges, but by the end of the experiment, they reach
+a steady state, leading to lower hysteresis. Another probable contribution is given by the redistribution of charges: these move fast as the EDLs are still forming, but they find an equilibrium after approximately \SI{30}{\min}, allowing the EDLs to reach a quasi-steady configuration. This allows to conclude that the lipophilic membrane on the channel does not have an effect on hysteresis.
 
 \begin{figure}
     \centering
@@ -147,7 +311,17 @@ Compared to previous results, the latter device shows an overall reduction in co
     \label{fig:outputMem}
 \end{figure}
 
-Figure~\ref{fig:outputMem} shows the output characteristics of the device with the channel encapsulated with the lipophilic membrane. Compared to the curves in Figure~\ref{fig:outputNoMem}, there is a notable difference: while the bare devices approached saturation, the encapsulated ones remain far from the saturation regime. This behavior may indicate that the membrane influences charge transport within the channel. The causes could be manifold: for starters, the higher \rds{} due to the membrane limits current injection,  preventing the device from reaching higher current levels and consequently, saturation. For the bare devices, on the other hand, the CNT network is in direct contact with the environment and benefits from more efficient charge injection and transport, leading close to saturation at higher gate voltages. ANother possible explanation is the fact that it is possible that the interaction between the lipophilic membrane and the CNTs alters their electronic properties, negatively influencing the carrier mobility and density, which directly affect current flow, and further contribute to failure to reach saturation.
+Figure~\ref{fig:outputMem} shows the output characteristics of the device with
+the channel encapsulated with the lipophilic membrane. Compared to the curves in
+Figure~\ref{fig:outputNoMem}, there is a notable difference: while the bare
+devices approached saturation, the encapsulated ones remain far from the
+saturation regime. This behaviour may indicate that the membrane strongly
+influences charge transport within the channel. The causes could be manifold:
+for starters, the higher \rds{} due to the membrane limits charge movement,
+preventing the device from reaching higher current levels and consequently,
+saturation. For the bare devices, on the other hand, the CNT network is in
+direct contact with the environment and benefits from more efficient charge
+injection and transport, leading close to saturation at higher gate voltages.
 
 \begin{figure}
     \centering
@@ -166,18 +340,33 @@ Figure~\ref{fig:outputMem} shows the output characteristics of the device with t
     \label{fig:normLong}
 \end{figure}
 
-The devices with the encapsulated channel demonstrate remarkable stability even over prolonged periods, as seen in Figure \ref{fig:normLong}. Indeed, measurements were carried out beyond the standard protocol, extending the collection of transfer characteristics for \SI{4}{\hour} (Figure \ref{fig:norm4h}) and later up to \SI{12}{\hour} (Figure \ref{fig:norm12h}). The \ion{} was extracted from the datasets and the trends analyzed: both plots reveal a continued increase in current over time, thus showing resilience well past the duration of a typical calibration curve in sensing applications. It is also important to observe that the current still follows a linear progression, even for these extended periods, thus ensuring the consistency required for EG-CNTFETs to be utilized effectively as sensor transducers.
+Following the direct comparison with the bare devices, the devices with the encapsulated channel were tested to demonstrate stability over prolonged periods, as seen in Figure \ref{fig:normLong}. Indeed, measurements were carried out beyond the standard protocol, extending the collection of transfer characteristics for \SI{4}{\hour} (Figure \ref{fig:norm4h}) and later up to \SI{12}{\hour} (Figure \ref{fig:norm12h}). The \ion{} was extracted from the datasets and the trends analyzed: both plots reveal a continued increase in current over time, thus showing resilience well past the duration of a typical use for sensing applications. It is also important to observe that the current still follows a linear progression over time, even for these extended periods, thus ensuring the consistency required for EG-CNTFETs to be utilized effectively as sensor transducers.
 
-\begin{figure}
+\begin{figure}[hb]
     \centering
     \includegraphics[width=0.45\textwidth]{figures/chapter3/EGFET/repMeas.pdf}
     \caption{\ion{} over multiple measurement cycles. The figure shows the \ion{} for a single device undergoing five consecutive transfer characteristic collections. The results demonstrate high reproducibility, with variability among the five cycles amounting to just \SI{2.67}{\%} after \SI{30}{\min} (the time necessary on average to reach an equilibrium), further reducing to \SI{1.93}{\%} after \SI{60}{\min}. This consistency highlights the reliability if the devices for repeated use in sensing applications.}
     \label{fig:repMeas}
 \end{figure}
 
-An additional test was conducted to test the resilience of the devices to multiple uses. To this end, the devices were subjected to five standard cycles of measurements (\SI{60}{\min}) and their performance was evaluated by extracting \ion{}. The results in Figure \ref{fig:repMeas} demonstrate that when the channel is covered by a lipophilic membrane, the EG-CNTFET devices maintain a stable and reproducible performance over multiple uses. Indeed, it is possible to see that while the standard deviation is very high at the beginning of the measurement, it decreases over time: after the \SI{30}{\min} required to reach the constant slope phase, the variability is \SI{2.67}{\%}, and it further improves after \SI{60}{\min}, being as low as \SI{1.93}{\%}. This is a promising outcome, as it indicates that the transducing component of the sensor can be reused without significant degradation. The ability to reuse the devices not only reduces costs but also electronic waste, making this approach more sustainable compared to single-use sensor platforms. These findings further support the feasibility of the encapsulation strategy for the development of EG-CNTFET-based sensors.
+An additional test was conducted to test the resilience of the devices to
+multiple uses. To this end, the devices were subjected to five standard cycles
+of measurements (\SI{60}{\min}) and their performance was evaluated by
+extracting \ion{}. The results in Figure \ref{fig:repMeas} demonstrate that when
+the channel is covered by a lipophilic membrane, the EG-CNTFET devices maintain
+a stable and reproducible performance over multiple uses. Indeed, it is possible
+to observe that while the standard deviation is very high at the beginning of
+the measurement, it decreases over time: after the \SI{30}{\min} required to
+reach the constant slope phase, the variability is \SI{2.67}{\%}, and it further
+improves after \SI{60}{\min}, being as low as \SI{1.93}{\%}. This is a promising
+outcome, as it indicates that the transducing component of the sensor can be
+reused without significant degradation. The ability to reuse the devices not
+only reduces costs but also electronic waste, making this approach more
+sustainable compared to single-use sensor platforms. These findings further
+support the benefits of the encapsulation strategy for the development of
+EG-CNTFET-based sensors.
 
-\begin{figure}
+\begin{figure}[hb]
     \centering
     \subfloat[Average On/Off ratio]{
         \includegraphics[width=0.45\textwidth]{figures/chapter3/EGFET/AvgOnOffRatio.pdf}
@@ -192,86 +381,30 @@ An additional test was conducted to test the resilience of the devices to multip
     \label{fig:avgParamsCfr}
 \end{figure}
 
-After this electrical characterization, parameters like the ON/OFF ratio (\ratio{}) and the threshold voltage (\vth{}) were calculated, to gather additional knowledge of device performance. In particular, Figure \ref{fig:avgOnOff} compares the trends of the ON/OFF ratio for devices without and with the lipophilic membrane. The bare devices exhibit a significant decrease in the ON/OFF ratio, dropping from 100 to 60. This reduction indicates a worsening in device performance over time. In contrast, devices with the encapsulated channel display a markedly different trend. After an initial drop from 17.63 to 9, the ON/OFF ratio exhibits a continuous linear increase, eventually reaching 24.51. This improvement suggests that the encapsulated devices have an enhanced performance at the end of the measurements.
-Figure \ref{fig:avgVth} displays the average \vth{} for both bare (red) and encapsulated (blue) devices, showing a comparison of the trends. It is immediately clear that this parameter is more easily comparable for the two devices than the ON/OFF ratio, as it has the same order of magnitude. The trends that the parameters display, though differ for the two cases: for the unprotected devices, \vth{} continuously increases in modulus, meaning that the device requires a higher gate voltage to reach the conductive state; indeed, the \vth{} at the beginning amounts to \SI{-0.421}{} $\pm$ \SI{0.105}{\V} and at the end it is \SI{-0.613}{} $\pm$ \SI{0.0225}{\V}. Conversely, the \vth{} of membrane-protected devices
-follows a similar trend to the \ion{}, in that it starts high, then drops very quickly at the beginning, only to linearly start increasing again. In this case, the \vth{} starts at \SI{-0.487}{} $\pm$ \SI{0.109}{\V} and ends at \SI{-0.570}{} $\pm$ \SI{0.0201}{\V}. Maintaining a lower \vth{} is particularly relevant for sensor applications, ensuring improved reproducibility, and lower power consumption over extended use. These findings further highlight the benefits of incorporating a protective membrane to enhance the stability and longevity of EG-CNTFETs.
+After this data collection, parameters like the ON/OFF ratio (\ratio{}) and the
+threshold voltage (\vth{}) were calculated, to gather additional knowledge of
+device performance. Figure \ref{fig:avgOnOff} compares the trends of the ON/OFF
+ratio for devices without and with the lipophilic membrane: the bare devices
+exhibit a significant decrease in the ON/OFF ratio, dropping from $100 \pm 30$
+to $60 \pm 24$. This reduction can be attributed to a worsening in device
+performance over time. In contrast, devices with the encapsulated channel
+display a markedly different trend. After an initial drop from 17.63 to 9, the
+ON/OFF ratio exhibits a continuous linear increase, eventually reaching 24.51.
+This improvement suggests that the encapsulated devices have an enhanced
+performance at the end of the measurements. The different behaviour for the
+devices points to different time-dependent dynamics: the bare devices likely
+start in a more doped state, which progressively loses carriers. The combination
+of repeated biasing, ionic redistribution, and trap filling reduce net carrier
+density; these phenomena cause a higher reduction of \ion{} rather than \ioff{},
+thus leading to a decrease in \ratio{}. On the other hand, the encapsulated
+devices appear to undergo an initial conditioning period, followed by gradual
+improvement in gate control: moreover, the membrane shields the CNTs from the
+electrolyte, thus reducing effective gate coupling causing a small \ion{}, which
+is reflected in the low \ratio{}. It is to be noted that a higher \ratio{} is
+advantageous for sensitivity, yet a more stable one shows a predictable trend.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{color}{red}
-    Physical interpretation (what these trends likely mean)
+Figure \ref{fig:avgVth} displays the average \vth{} for both bare (red) and encapsulated (blue) devices, showing a comparison of the trends. It is immediately clear that this parameter is more easily comparable for the two devices than the ON/OFF ratio, as it has the same order of magnitude. The trends that the parameters display, though differ for the two cases: for the unprotected devices, \vth{} continuously increases in modulus, meaning that the device requires a higher gate voltage to reach the conductive state; indeed, the \vth{} at the beginning amounts to \SI{-0.421}{} $\pm$ \SI{0.105}{\V} and at the end it is \SI{-0.613}{} $\pm$ \SI{0.0225}{\V}.
+Conversely, the \vth{} of membrane-protected devices
+follows a similar trend to the \ion{}, in that it starts high, then drops very quickly at the beginning, only to linearly start increasing again. In this case, the \vth{} starts at \SI{-0.487}{} $\pm$ \SI{0.109}{\V} and ends at \SI{-0.570}{} $\pm$ \SI{0.0201}{\V}. This confirms what was hypothesized before, \ie{} there is a conditioning step at the beginning of the measurements, but when ions penentrate the membrane, gate coupling recovers and charge traps get progressively filled, leading to a performance improvement. 
 
-1. Bare devices (100 --> 60) \\
-Why high initially? The exposed CNT channel is more strongly coupled to the environment (oxygen, adsorbed water, ions), which can initially enhance carrier density (p-doping by oxygen, or adsorbed ionic species) and yield a large Ion/Ioff.\\
-Why the drop? Repeated biasing and ionic redistribution/trap filling likely reduce the net carrier density (desorption or neutralization of adsorbates, filling of slow traps), or increase series/contact resistance, causing 
-Ion to fall more than
-Ioff. This reduces the on/off ratio. The concurrent reduction of hysteresis supports an equilibration/trap-filling picture: slow states become stabilized, removing history dependence but also reducing free carriers. \\
-%
-Implication: Bare devices give higher instantaneous contrast (good for sensitivity) but show degradation/drift that may require conditioning or recalibration. \\
-2. Encapsulated devices (17.6 --> 9 --> 24.5)\\
-Why low initially? The lipophilic membrane partially shields the CNTs from the electrolyte and ambient, which can reduce effective gate coupling (smaller EDL capacitance or larger distance) or alter initial wetting at the CNT/membrane/electrolyte interface. Reduced gate coupling yields smaller 
-Ion (or relatively larger 
-Ioff), hence a low initial ratio. \\
-Why the early dip and recovery? The initial rapid drop (17.6 --> 9) likely reflects an immediate rearrangement (poor wetting, trapped solvent/air pockets, or initial ionic distribution under the membrane) that transiently worsens contrast. Over time, ions slowly permeate/redistribute across or beneath the membrane, traps equilibrate, and the EDL forms more stably, improving gate action—this produces the gradual increase to $\approx$24.5. The hysteresis disappearing to zero is again consistent with trap/ion equilibration. \\
-%
-Implication: Encapsulation reduces exposure-related variability and preserves environment/biocompatibility, but it comes at the cost of weaker initial gate coupling; however, with conditioning the device partially recovers and becomes more stable. \\
-%
-Which is “better”? (practical view for sensors)\\
-%
-Higher absolute on/off ratio (as in the bare devices initially and at the end) generally improves signal contrast and limit-of-detection — desirable for sensing.\\
-%
-Stability and repeatability (small drift, reproducible behavior after conditioning) are equally important for reliable measurements. A device that starts high but drifts unpredictably is problematic in practical sensing without re-calibration.\\
-%
-In your case: the bare devices offer higher absolute on/off values (even after the drop they end higher than encapsulated devices), which is advantageous for sensitivity. The encapsulated devices, though lower in absolute ratio, show a predictable conditioning trend (dip then linear recovery) and may offer better long-term environmental protection — a trade-off between instant sensitivity (bare) and controlled environment / potential longevity (encapsulated).
-\end{color}
-
-\begin{color}{teal}
-A — Suggested concise description (ready for Results / Discussion) \\
-At the beginning of the measurement the threshold voltages are close (bare: Vth
-=-0.421 V; encapsulated: 
-Vth = -0.418 V). After one hour of repeated transfer sweeps, the bare devices shift negatively to 
--0.613 V, while the encapsulated devices display an initial rapid negative excursion followed by a gradual recovery, stabilizing near 
--0.57 V. In both cases Vth shifts in the negative direction overall, but the encapsulated devices exhibit a transient response (dip + recovery) whereas the bare devices show a monotonic negative drift. These trends indicate time-dependent changes at the semiconductor-electrolyte interface (for example trap filling/charge redistribution, de-doping or ionic rearrangement) that alter the effective gate bias required to turn the channel on. \\
-%
-B — Physical interpretations (mechanisms and how they map to the observed trends) \\
-1. Negative shift of Vth — what it means physically \\
-%
-A negative shift of threshold means the transistor requires a more negative gate voltage to reach the same conduction level (i.e., the device has become effectively less n-doped or more p-doped in the sense that a stronger negative gate is needed for the ON state in a p-type device, or equivalently that the channel carrier density for a given gate bias has decreased). Mechanistically this can reflect:
-\begin{itemize}
-    \item loss of mobile carriers in the channel (de-doping),
-    \item an increase in trapped negative charge near the channel (which must be compensated by more negative gate to turn on),
-    \item reduced effective gate coupling (lower gate capacitance), so a larger |Vgs| is needed to induce the same channel charge.
-\end{itemize}
-
-2. Why bare devices might shift monotonically negative (-0.421 → -0.613 V)
-\begin{itemize}
-    \item Adsorbate loss / de-doping: Exposed CNTs can be p-doped by adsorbed oxygen/water species. Repeated biasing and ionic reorganization can desorb or neutralize some of these dopants, reducing hole density and requiring a more negative gate to reach the same current.
-    \item Progressive trap filling that removes free carriers: Slow traps may capture carriers over successive sweeps; filled traps reduce free-carrier density, shifting Vth negatively.
-    \item Contact / series resistance increase: If contact resistance increases with time, apparent threshold extracted by typical methods can shift; however, contact changes alone usually also change the slope and absolute current strongly.
-\end{itemize}
-
-The monotonic negative drift and simultaneous reduction of Id you reported are consistent with de-doping / trap-filling as dominant causes. \\
-
-3. Why encapsulated devices show a dip then partial recovery (-0.418 → dip → -0.57)
-\begin{itemize}
-    \item Initial reconfiguration (wetting/ion redistribution under the membrane): The membrane initially impedes electrolyte access and EDL formation. The first sweeps may displace trapped air pockets or cause a rapid local rearrangement of ions beneath/within the membrane, producing a sudden negative shift (worst gating).
-    \item Slow equilibration/permeation: Over time ions slowly penetrate/rearrange so the gate coupling partially recovers; traps may fill early then some reversible rebalancing occurs, moving Vth back less negative.
-    \item Membrane-limited kinetics: The membrane slows ionic exchange and oxygen/water interactions, so the dynamics show a transient response followed by a slower recovery rather than a monotonic drift.
-This transient + recovery pattern is characteristic of systems where the gating environment is physically constrained (membrane) and requires time to reach steady ionic/electrochemical conditions.
-\end{itemize}
-
-4. Why both device types converge to more negative Vth \\
-Even if mechanisms differ in kinetics, both may trend negative because repeated electrical stressing tends to:
-\begin{itemize}
-    \item occupy slow traps,
-    \item modify the local chemical environment (partial desorption or redistribution),
-    \item or cause slight permanent changes in the interface chemistry — all of which reduce channel carrier density or effective coupling.
-\end{itemize}
-
-D — Implications for device performance and sensor operation
-
-Shift magnitude and direction matter: a negative shift of Vth changes the device operating point. For sensors that rely on small shifts of gate potential caused by binding events, baseline drifting of Vth reduces reliability and requires recalibration.
-
-Encapsulation trade-off: the membrane slows environmental effects and can make behavior more predictable (conditioning then slow recovery), but it also reduces initial gate coupling and changes the time-evolution of Vth . Bare devices may offer stronger initial gating (higher sensitivity) but suffer monotonic drifts that harm reproducibility.
-
-Practical strategy: condition devices (perform a defined number of sweeps until Vth stabilizes) before measuring analytes, or include reference calibration to correct for drift. For long-term sensing, encapsulation may still be preferable if it reduces variability across samples and protects from biofouling, despite slower equilibration.
-\end{color}
+Maintaining a lower \vth{} is particularly relevant for sensor applications, ensuring improved reproducibility, and lower power consumption over extended use. 
